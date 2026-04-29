@@ -170,18 +170,16 @@ export default function HekfieldPage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            {/* Embedded PDF viewer */}
             <div className="border border-navy/10 overflow-hidden">
-              <iframe
-                src="/images/hekfield/floorplan.pdf#toolbar=0&navpanes=0&scrollbar=0"
-                width="100%"
-                height="600"
-                className="block"
-                title="Hekfield Rempoa Rempoa Floor Plan"
+              <Image
+                src="/images/hekfield/floorplan.jpg"
+                alt="Denah Hekfield Rempoa: Lantai 1, 2, dan 3"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain"
+                quality={95}
               />
             </div>
-
-
           </FadeIn>
         </div>
       </section>
