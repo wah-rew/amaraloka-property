@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-inter;
+  }
+}
+
+@layer utilities {
+  .eyebrow {
+    @apply font-inter text-xs uppercase tracking-[0.2em] font-medium;
+  }
+}
