@@ -31,7 +31,7 @@ const highlights = [
 export default function HekfieldClient() {
   return (
     <>
-      {/* ── The Investment Case for Hekfield ─────────────────────────────── */}
+      {/* ── The Investment Case for Hekfield Rempoa Rempoa ─────────────────────────────── */}
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -46,17 +46,17 @@ export default function HekfieldClient() {
               INVESTMENT ANALYSIS
             </p>
             <h2 className="font-playfair text-4xl text-cream mb-4 leading-snug">
-              The Investment Case for Hekfield
+              The Investment Case for Hekfield Rempoa Rempoa
             </h2>
             <p className="font-inter text-sm text-cream/55 leading-relaxed">
-              Owning a Hekfield unit means owning an income-generating asset
+              Owning a Hekfield Rempoa Rempoa unit means owning an income-generating asset
               with strata title. Here is what that looks like over time.
             </p>
           </motion.div>
 
           {/* 4 Cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            {/* Card 1: Annual Income Projection — dark navy with brass numbers */}
+            {/* Card 1: Annual Income Projection dark navy with brass numbers */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +226,7 @@ export default function HekfieldClient() {
             </motion.div>
           </div>
 
-          {/* Investment Highlights strip — 4 items in a row */}
+          {/* Investment Highlights strip 4 items in a row */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -6,7 +6,7 @@ import ContactForm from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Amaraloka Property. Schedule a visit to Hekfield or discuss an investment opportunity.",
+    "Get in touch with Amaraloka Property. Schedule a visit to Hekfield Rempoa or discuss an investment opportunity.",
 };
 
 export default function ContactPage() {
@@ -44,11 +44,11 @@ export default function ContactPage() {
                   SCHEDULE A VISIT
                 </p>
                 <p className="font-inter text-sm text-slate leading-relaxed mb-4">
-                  We offer private viewings of Hekfield by appointment. Bring
+                  We offer private viewings of Hekfield Rempoa by appointment. Bring
                   your questions. We will bring the coffee.
                 </p>
                 <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi, I'd like to schedule a visit to Hekfield.")}`}
+                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi, I'd like to schedule a visit to Hekfield Rempoa.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-white font-inter text-xs hover:bg-navyLight transition-colors"

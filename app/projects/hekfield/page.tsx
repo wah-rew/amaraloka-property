@@ -6,9 +6,9 @@ import HekfieldClient from "./HekfieldClient";
 import HekfieldBookingForm from "./HekfieldBookingForm";
 
 export const metadata: Metadata = {
-  title: "Hekfield — Strata Title Kost Investment by Amaraloka",
+  title: "Hekfield Rempoa Rempoa Strata Title Kost Investment by Amaraloka",
   description:
-    "5 units. SHM ownership. Passive income managed by Amaraloka. Hekfield is a premium kost investment property in Jakarta — not a rental.",
+    "5 units. SHM ownership. Passive income managed by Amaraloka. Hekfield Rempoa Rempoa is a premium kost investment property in Jakarta not a rental.",
   openGraph: {
     images: ["/images/hekfield/facade.jpg"],
   },
@@ -23,7 +23,7 @@ const amenities = [
   {
     icon: Sparkles,
     title: "Housekeeping Included",
-    desc: "Units professionally cleaned and maintained — fully managed for you.",
+    desc: "Units professionally cleaned and maintained fully managed for you.",
   },
   {
     icon: HeadphonesIcon,
@@ -32,7 +32,7 @@ const amenities = [
   },
 ];
 
-// NOTE: Exact distances to be confirmed by Wahyu for Hekfield's final address
+// NOTE: Exact distances to be confirmed by Wahyu for Hekfield Rempoa Rempoa's final address
 const nearbyPOIs = [
   {
     category: "Transportasi",
@@ -75,7 +75,7 @@ export default function HekfieldPage() {
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <Image
           src="/images/hekfield/facade.jpg"
-          alt="Hekfield angle view of the white European-style townhouse with dark mansard roofs and climbing vines"
+          alt="Hekfield Rempoa Rempoa angle view of the white European-style townhouse with dark mansard roofs and climbing vines"
           fill
           className="object-cover object-center"
           priority
@@ -106,7 +106,7 @@ export default function HekfieldPage() {
           </FadeIn>
           <FadeIn delay={0.25}>
             <h1 className="font-playfair text-7xl md:text-8xl lg:text-9xl text-white leading-none mb-4">
-              Hekfield
+              Hekfield Rempoa Rempoa
             </h1>
           </FadeIn>
           <FadeIn delay={0.4}>
@@ -135,7 +135,7 @@ export default function HekfieldPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-              Hekfield takes its name from the Georgian estate in Hampshire, a
+              Hekfield Rempoa Rempoa takes its name from the Georgian estate in Hampshire, a
               place defined by restraint, nature, and the quiet habits of a life
               well-lived. We brought that spirit to Jakarta, translating it into
               a premium kost property that feels less like accommodation and more
@@ -144,7 +144,7 @@ export default function HekfieldPage() {
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-              Phase 1 offers exactly five units — each transferred under SHM
+              Phase 1 offers exactly five units each transferred under SHM
               (Sertifikat Hak Milik), the highest form of property title in
               Indonesia. Fully managed by Amaraloka, owners receive monthly
               income without involvement.
@@ -155,7 +155,7 @@ export default function HekfieldPage() {
               Understated elegance runs through every decision, from the mansard
               silhouette and climbing vines of the facade to the hand-selected
               fixtures inside. This is a place designed for people who appreciate
-              the difference — and understand the value of owning it.
+              the difference and understand the value of owning it.
             </p>
           </FadeIn>
         </div>
@@ -184,7 +184,7 @@ export default function HekfieldPage() {
                 width="100%"
                 height="600"
                 className="block"
-                title="Hekfield Floor Plan"
+                title="Hekfield Rempoa Rempoa Floor Plan"
               />
             </div>
 
@@ -275,7 +275,7 @@ export default function HekfieldPage() {
               EXPRESS INTEREST
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-4">
-              Express Interest in Hekfield
+              Express Interest in Hekfield Rempoa Rempoa
             </h2>
             <p className="font-inter text-sm text-slate text-center mb-16 max-w-md mx-auto leading-relaxed">
               We will contact you to discuss unit availability, pricing, and

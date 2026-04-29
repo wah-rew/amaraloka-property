@@ -106,13 +106,13 @@ export default function HomePage() {
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Hekfield Card */}
+            {/* Hekfield Rempoa Card */}
             <FadeIn delay={0.1}>
               <Link href="/projects/hekfield" className="group block">
                 <div className="relative overflow-hidden aspect-[4/3] bg-navy">
                   <Image
                     src="/images/hekfield/facade-front.jpg"
-                    alt="Hekfield frontal view of the white European-style co-living townhouse with dark mansard roofs"
+                    alt="Hekfield Rempoa frontal view of the white European-style co-living townhouse with dark mansard roofs"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
@@ -127,7 +127,7 @@ export default function HomePage() {
                   {/* Bottom content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="font-playfair text-2xl text-white mb-1">
-                      Hekfield
+                      Hekfield Rempoa
                     </h3>
                     <p className="font-inter text-sm text-cream/80 mb-3">
                       A quiet estate for people with high standards.
