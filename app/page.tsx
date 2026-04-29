@@ -201,12 +201,15 @@ export default function HomePage() {
             </Link>
           </FadeIn>
 
-          {/* Placeholder visual */}
           <FadeIn delay={0.2}>
-            <div className="aspect-[4/5] bg-navyLight border border-cream/10 flex items-center justify-center">
-              <p className="font-inter text-xs text-cream/25 tracking-widest uppercase">
-                Studio Portrait
-              </p>
+            <div className="aspect-[4/5] relative overflow-hidden">
+              <Image
+                src="/images/amaraloka/interior.jpg"
+                alt="Amaraloka Property interior — considered spaces"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </FadeIn>
         </div>
