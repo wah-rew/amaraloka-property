@@ -145,26 +145,29 @@ export default function HomePage() {
               </Link>
             </FadeIn>
 
-            {/* Coming Soon */}
+            {/* Arlington Rempoa */}
             <FadeIn delay={0.2}>
-              <div className="opacity-50 cursor-default">
-                <div className="relative overflow-hidden aspect-[4/3] bg-sand flex items-center justify-center">
-                  <span className="absolute top-4 left-4 bg-navy/20 text-navy/50 eyebrow text-[10px] px-3 py-1">
-                    IN DEVELOPMENT
+              <div>
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <Image
+                    src="/images/arlington/facade.jpg"
+                    alt="Arlington Rempoa by Amaraloka Property"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+                  {/* SOLD tag */}
+                  <span className="absolute top-4 left-4 bg-driftwood text-cream eyebrow text-[10px] px-3 py-1 tracking-[0.15em]">
+                    SOLD
                   </span>
-                  <div className="text-center p-8">
-                    <p className="font-playfair text-4xl text-navy/20 mb-2">
-                      ?
-                    </p>
-                    <p className="font-inter text-sm text-navy/30">
-                      Something is taking shape.
-                    </p>
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="font-playfair text-2xl text-white mb-1">Arlington Rempoa</h3>
+                    <p className="font-inter text-xs text-cream/60">Jakarta Selatan</p>
                   </div>
                 </div>
                 <div className="mt-4">
-                  <span className="font-inter text-sm text-slate/50">
-                    Announcement coming soon
-                  </span>
+                  <p className="font-inter text-sm text-slate italic">A quiet house for those who have arrived.</p>
                 </div>
               </div>
             </FadeIn>
