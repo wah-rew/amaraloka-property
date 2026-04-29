@@ -163,7 +163,7 @@ export default function HomePage() {
                   </span>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="font-playfair text-2xl text-white mb-1">Arlington Rempoa</h3>
-                    <p className="font-inter text-xs text-cream/60">Jakarta Selatan</p>
+                    
                   </div>
                 </div>
                 <div className="mt-4">

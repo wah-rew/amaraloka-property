@@ -176,7 +176,7 @@ export default function HekfieldPage() {
                 alt="Denah Hekfield Rempoa: Lantai 1, 2, dan 3"
                 width={1200}
                 height={800}
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain p-8 bg-white"
                 quality={95}
               />
             </div>
