@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -18,19 +18,12 @@ type FormData = z.infer<typeof schema>;
 
 export default function HekfieldBookingForm() {
   const [submitted, setSubmitted] = useState(false);
-  const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281234567890";
 
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
-
-  const buildWAText = (data: FormData) =>
-    encodeURIComponent(
-      `Halo Hekfield Rempoa,\n\nSaya tertarik untuk berinvestasi di Hekfield Rempoa.\n\nNama: ${data.name}\nEmail: ${data.email}\nWA/Phone: ${data.phone}\nBudget: ${data.budget}${data.message ? `\n\nPesan: ${data.message}` : ""}`
-    );
 
   const onSubmit = (data: FormData) => {
     console.log("Hekfield Rempoa expression of interest:", data);
@@ -113,21 +106,18 @@ export default function HekfieldBookingForm() {
 
 
 
-          {/* Investment Budget Range */}
+          {/* Payment Preference */}
           <div className="sm:col-span-2">
             <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
-              INVESTMENT BUDGET RANGE *
+              PREFERENSI PEMBAYARAN *
             </label>
             <select
               {...register("budget")}
               className="w-full bg-cream border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors appearance-none"
             >
-              <option value="">Select range...</option>
-              <option value="Under Rp 500jt">Under Rp 500jt</option>
-              <option value="Rp 500jt - 1M">Rp 500jt – 1M</option>
-              <option value="Rp 1M - 2M">Rp 1M – 2M</option>
-              <option value="Above Rp 2M">Above Rp 2M</option>
-              <option value="Prefer not to say">Prefer not to say</option>
+              <option value="">Pilih preferensi...</option>
+              <option value="Hard Cash">Hard Cash</option>
+              <option value="Installment Cash">Installment Cash</option>
             </select>
             {errors.budget && (
               <p className="mt-1 font-inter text-xs text-driftwood">
@@ -151,24 +141,14 @@ export default function HekfieldBookingForm() {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-2">
+        <div className="pt-2">
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex-1 px-6 py-3 bg-brass text-cream font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
+            className="w-full px-6 py-4 bg-brass text-cream font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
           >
-            {isSubmitting ? "Submitting..." : "Submit Expression of Interest"}
+            {isSubmitting ? "Mengirim..." : "Submit Expression of Interest"}
           </button>
-
-          <a
-            href={`https://wa.me/${waNumber}?text=${buildWAText(getValues())}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-sage text-sage font-inter text-sm hover:bg-sage hover:text-cream transition-colors duration-200"
-          >
-            <MessageCircle size={15} />
-            Continue on WhatsApp
-          </a>
         </div>
 
         <p className="font-inter text-xs text-navy/35 text-center">
