@@ -30,11 +30,11 @@ export default function HekfieldBookingForm() {
 
   const buildWAText = (data: FormData) =>
     encodeURIComponent(
-      `Halo Hekfield Rempoa Rempoa,\n\nSaya tertarik untuk berinvestasi di Hekfield Rempoa Rempoa.\n\nNama: ${data.name}\nEmail: ${data.email}\nWA/Phone: ${data.phone}\nPreferred Unit: ${data.unit}\nBudget: ${data.budget}${data.message ? `\n\nPesan: ${data.message}` : ""}`
+      `Halo Hekfield Rempoa,\n\nSaya tertarik untuk berinvestasi di Hekfield Rempoa.\n\nNama: ${data.name}\nEmail: ${data.email}\nWA/Phone: ${data.phone}\nPreferred Unit: ${data.unit}\nBudget: ${data.budget}${data.message ? `\n\nPesan: ${data.message}` : ""}`
     );
 
   const onSubmit = (data: FormData) => {
-    console.log("Hekfield Rempoa Rempoa expression of interest:", data);
+    console.log("Hekfield Rempoa expression of interest:", data);
     setSubmitted(true);
   };
 

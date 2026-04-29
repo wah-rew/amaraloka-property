@@ -31,7 +31,7 @@ const highlights = [
 export default function HekfieldClient() {
   return (
     <>
-      {/* ── The Investment Case for Hekfield Rempoa Rempoa ─────────────────────────────── */}
+      {/* ── The Investment Case for Hekfield Rempoa ─────────────────────────────── */}
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -46,10 +46,10 @@ export default function HekfieldClient() {
               INVESTMENT ANALYSIS
             </p>
             <h2 className="font-playfair text-4xl text-cream mb-4 leading-snug">
-              The Investment Case for Hekfield Rempoa Rempoa
+              The Investment Case for Hekfield Rempoa
             </h2>
             <p className="font-inter text-sm text-cream/55 leading-relaxed">
-              Owning a Hekfield Rempoa Rempoa unit means owning an income-generating asset
+              Owning a Hekfield Rempoa unit means owning an income-generating asset
               with strata title. Here is what that looks like over time.
             </p>
           </motion.div>

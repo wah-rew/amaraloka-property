@@ -6,9 +6,9 @@ import HekfieldClient from "./HekfieldClient";
 import HekfieldBookingForm from "./HekfieldBookingForm";
 
 export const metadata: Metadata = {
-  title: "Hekfield Rempoa Rempoa Strata Title Kost Investment by Amaraloka",
+  title: "Hekfield Rempoa Strata Title Kost Investment by Amaraloka",
   description:
-    "5 units. SHM ownership. Passive income managed by Amaraloka. Hekfield Rempoa Rempoa is a premium kost investment property in Jakarta not a rental.",
+    "5 units. SHM ownership. Passive income managed by Amaraloka. Hekfield Rempoa is a premium kost investment property in Jakarta not a rental.",
   openGraph: {
     images: ["/images/hekfield/facade.jpg"],
   },
@@ -32,7 +32,7 @@ const amenities = [
   },
 ];
 
-// NOTE: Exact distances to be confirmed by Wahyu for Hekfield Rempoa Rempoa's final address
+// NOTE: Exact distances to be confirmed by Wahyu for Hekfield Rempoa's final address
 const nearbyPOIs = [
   {
     category: "Transportasi",
@@ -75,7 +75,7 @@ export default function HekfieldPage() {
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <Image
           src="/images/hekfield/facade.jpg"
-          alt="Hekfield Rempoa Rempoa angle view of the white European-style townhouse with dark mansard roofs and climbing vines"
+          alt="Hekfield Rempoa angle view of the white European-style townhouse with dark mansard roofs and climbing vines"
           fill
           className="object-cover object-center"
           priority
@@ -99,7 +99,7 @@ export default function HekfieldPage() {
           </FadeIn>
           <FadeIn delay={0.25}>
             <h1 className="font-playfair text-7xl md:text-8xl lg:text-9xl text-white leading-none mb-4">
-              Hekfield Rempoa Rempoa
+              Hekfield Rempoa
             </h1>
           </FadeIn>
           <FadeIn delay={0.4}>
@@ -128,7 +128,7 @@ export default function HekfieldPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-              Hekfield Rempoa Rempoa takes its name from the Georgian estate in Hampshire, a
+              Hekfield Rempoa takes its name from the Georgian estate in Hampshire, a
               place defined by restraint, nature, and the quiet habits of a life
               well-lived. We brought that spirit to Jakarta, translating it into
               a premium kost property that feels less like accommodation and more
@@ -266,7 +266,7 @@ export default function HekfieldPage() {
               EXPRESS INTEREST
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-4">
-              Express Interest in Hekfield Rempoa Rempoa
+              Express Interest in Hekfield Rempoa
             </h2>
             <p className="font-inter text-sm text-slate text-center mb-16 max-w-md mx-auto leading-relaxed">
               We will contact you to discuss unit availability, pricing, and
