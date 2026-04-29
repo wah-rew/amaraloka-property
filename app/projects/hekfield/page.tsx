@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import {
-  Coffee,
-  Sparkles,
-  HeadphonesIcon,
-} from "lucide-react";
+import { Coffee, Sparkles, HeadphonesIcon, FileText, Download } from "lucide-react";
 import FadeIn from "../../components/FadeIn";
 import HekfieldClient from "./HekfieldClient";
+import HekfieldBookingForm from "./HekfieldBookingForm";
 
 export const metadata: Metadata = {
-  title: "Hekfield: Co-living by Amaraloka Property",
+  title: "Hekfield — Strata Title Kost Investment by Amaraloka",
   description:
-    "Premium co-living in Jakarta with thoughtfully designed spaces, weekly housekeeping, and a curated community of residents.",
+    "5 units. SHM ownership. Passive income managed by Amaraloka. Hekfield is a premium kost investment property in Jakarta — not a rental.",
   openGraph: {
     images: ["/images/hekfield/facade.jpg"],
   },
@@ -25,13 +22,13 @@ const amenities = [
   },
   {
     icon: Sparkles,
-    title: "Weekly Housekeeping",
-    desc: "Rooms cleaned weekly, fresh linens included.",
+    title: "Housekeeping Included",
+    desc: "Units professionally cleaned and maintained — fully managed for you.",
   },
   {
     icon: HeadphonesIcon,
     title: "Concierge Service",
-    desc: "A responsive WhatsApp concierge ready for anything you need.",
+    desc: "A responsive WhatsApp concierge handling tenant needs on your behalf.",
   },
 ];
 
@@ -74,9 +71,8 @@ const nearbyPOIs = [
 export default function HekfieldPage() {
   return (
     <>
-      {/* ── Hero ────────────────────────────────────────────── */}
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-end overflow-hidden">
-        {/* Real facade image */}
         <Image
           src="/images/hekfield/facade.jpg"
           alt="Hekfield angle view of the white European-style townhouse with dark mansard roofs and climbing vines"
@@ -85,8 +81,21 @@ export default function HekfieldPage() {
           priority
           sizes="100vw"
         />
-        {/* Navy overlay, stronger at bottom for legibility */}
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(27,43,75,0.85) 0%, rgba(27,43,75,0.3) 50%, rgba(27,43,75,0.1) 100%)" }} />
+        {/* Navy overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(27,43,75,0.88) 0%, rgba(27,43,75,0.3) 50%, rgba(27,43,75,0.1) 100%)",
+          }}
+        />
+
+        {/* COMING SOON badge */}
+        <div className="absolute top-6 left-6 z-10">
+          <span className="bg-navy text-cream eyebrow text-[10px] px-3 py-1 tracking-[0.18em]">
+            COMING SOON
+          </span>
+        </div>
 
         {/* Content, bottom left */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-20 pt-32 w-full">
@@ -101,14 +110,19 @@ export default function HekfieldPage() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.4}>
-            <p className="font-inter text-xl text-cream/75 max-w-md leading-relaxed">
-              A quiet estate for people with high standards.
+            <p className="font-inter text-xl text-cream/75 max-w-md leading-relaxed mb-3">
+              A quiet estate for the quietly ambitious.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.5}>
+            <p className="font-inter text-xs text-cream/50 tracking-[0.22em] uppercase">
+              5 units.&nbsp;&nbsp;Strata title.&nbsp;&nbsp;Passive income.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ── The Story ───────────────────────────────────────── */}
+      {/* ── The Story ────────────────────────────────────────────────────── */}
       <section className="bg-cream py-28 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
@@ -122,34 +136,84 @@ export default function HekfieldPage() {
           <FadeIn delay={0.1}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
               Hekfield takes its name from the Georgian estate in Hampshire, a
-              place defined by restraint, nature, and the quiet habits of a
-              life well-lived. We brought that spirit to Jakarta, translating it
-              into a co-living residence that feels less like accommodation and
-              more like a home worth coming back to.
+              place defined by restraint, nature, and the quiet habits of a life
+              well-lived. We brought that spirit to Jakarta, translating it into
+              a premium kost property that feels less like accommodation and more
+              like an asset worth owning.
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-              Designed as a sanctuary for young professionals who have outgrown
-              the noise of conventional rentals, Hekfield offers something rarer
-              than square metres: atmosphere. Rooms are quiet, common spaces are
-              considered, and neighbours are people who care about the same
-              things you do.
+              Phase 1 offers exactly five units — each transferred under SHM
+              (Sertifikat Hak Milik), the highest form of property title in
+              Indonesia. Fully managed by Amaraloka, owners receive monthly
+              income without involvement.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-inter text-sm text-slate leading-relaxed">
-              Understated elegance runs through every decision, from the
-              mansard silhouette and climbing vines of the facade to the
-              hand-selected books in the reading room. This is a place designed
-              for people who appreciate the difference.
+              Understated elegance runs through every decision, from the mansard
+              silhouette and climbing vines of the facade to the hand-selected
+              fixtures inside. This is a place designed for people who appreciate
+              the difference — and understand the value of owning it.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* ── Amenities ───────────────────────────────────────── */}
+      {/* ── Floor Plan ───────────────────────────────────────────────────── */}
       <section className="bg-white py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <FadeIn>
+            <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
+              FLOOR PLAN
+            </p>
+            <h2 className="font-playfair text-4xl text-navy text-center mb-3">
+              Floor Plan
+            </h2>
+            <p className="font-inter text-sm text-slate text-center mb-12 max-w-md mx-auto">
+              Denah tersedia untuk ditinjau. Hubungi kami untuk detail lengkap.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.1}>
+            {/* Embedded PDF viewer */}
+            <div className="border border-navy/10 overflow-hidden">
+              <iframe
+                src="/images/hekfield/floorplan.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                width="100%"
+                height="600"
+                className="block"
+                title="Hekfield Floor Plan"
+              />
+            </div>
+
+            {/* Download fallback */}
+            <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="/images/hekfield/floorplan.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-navy/20 text-navy font-inter text-xs tracking-wide hover:border-brass hover:text-brass transition-colors duration-200"
+              >
+                <FileText size={13} strokeWidth={1.5} />
+                View Floor Plan
+              </a>
+              <a
+                href="/images/hekfield/floorplan.pdf"
+                download="Hekfield-FloorPlan.pdf"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-cream font-inter text-xs tracking-wide hover:bg-navy/80 transition-colors duration-200"
+              >
+                <Download size={13} strokeWidth={1.5} />
+                Download PDF
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Amenities ────────────────────────────────────────────────────── */}
+      <section className="bg-cream py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
@@ -163,11 +227,7 @@ export default function HekfieldPage() {
             {amenities.map((a, i) => (
               <FadeIn key={a.title} delay={i * 0.08}>
                 <div className="border-t border-sand pt-6">
-                  <a.icon
-                    size={20}
-                    className="text-brass mb-4"
-                    strokeWidth={1.5}
-                  />
+                  <a.icon size={20} className="text-brass mb-4" strokeWidth={1.5} />
                   <h3 className="font-playfair text-lg text-navy mb-2">
                     {a.title}
                   </h3>
@@ -181,80 +241,10 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      {/* ── Unit Selector + Floor Plan ──────────────────────── */}
+      {/* ── Reserve Your Unit + Investment Analysis ───────────────────────── */}
       <HekfieldClient />
 
-      {/* ── Gallery ─────────────────────────────────────────── */}
-      <section className="bg-cream py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <FadeIn>
-            <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              GALLERY
-            </p>
-            <h2 className="font-playfair text-4xl text-navy text-center mb-16">
-              A glimpse inside Hekfield
-            </h2>
-          </FadeIn>
-
-          {/* Facade images */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-3">
-            <FadeIn delay={0} className="col-span-2 md:col-span-2">
-              <div className="relative aspect-[16/9] overflow-hidden group">
-                <Image
-                  src="/images/hekfield/facade.jpg"
-                  alt="Hekfield angle view of the facade"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                />
-                <div className="absolute bottom-3 left-3 bg-navy/60 backdrop-blur-sm px-3 py-1">
-                  <span className="eyebrow text-cream text-[10px]">
-                    FACADE / ANGLE VIEW
-                  </span>
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.08}>
-              <div className="relative aspect-[4/5] overflow-hidden group">
-                <Image
-                  src="/images/hekfield/facade-front.jpg"
-                  alt="Hekfield frontal view of the facade"
-                  fill
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                />
-                <div className="absolute bottom-3 left-3 bg-navy/60 backdrop-blur-sm px-3 py-1">
-                  <span className="eyebrow text-cream text-[10px]">
-                    FACADE / FRONT VIEW
-                  </span>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          {/* Placeholder blocks for interior renders */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {[
-              "Bedroom 01",
-              "Common Area",
-              "Pantry",
-              "Garden View",
-              "Reading Room",
-              "Bathroom Detail",
-            ].map((label, i) => (
-              <FadeIn key={label} delay={i * 0.06}>
-                <div className="aspect-square bg-sand border border-navy/8 flex items-center justify-center">
-                  <span className="eyebrow text-navy/30 text-[10px] text-center px-3">
-                    {label}
-                  </span>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Location ────────────────────────────────────────── */}
+      {/* ── Location ─────────────────────────────────────────────────────── */}
       <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
@@ -270,7 +260,6 @@ export default function HekfieldPage() {
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            {/* POIs */}
             <FadeIn delay={0.15}>
               <div className="space-y-8">
                 {nearbyPOIs.map((group) => (
@@ -297,28 +286,24 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      {/* ── Booking Form ────────────────────────────────────── */}
+      {/* ── Express Interest Form ─────────────────────────────────────────── */}
       <section className="bg-cream py-24 px-6" id="reserve">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              RESERVE A UNIT
+              EXPRESS INTEREST
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-4">
-              Begin your residency.
+              Express Interest in Hekfield
             </h2>
             <p className="font-inter text-sm text-slate text-center mb-16 max-w-md mx-auto leading-relaxed">
-              Complete the form below and we&apos;ll be in touch within 24
-              hours, or continue directly on WhatsApp.
+              We will contact you to discuss unit availability, pricing, and
+              next steps. No commitment required.
             </p>
           </FadeIn>
-          {/* Client-side form */}
           <HekfieldBookingForm />
         </div>
       </section>
     </>
   );
 }
-
-// Lazy import so this file stays a server component
-import HekfieldBookingForm from "./HekfieldBookingForm";

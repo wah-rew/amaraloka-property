@@ -1,427 +1,116 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { motion } from "framer-motion";
 import {
-  FileText,
-  Download,
-  ExternalLink,
-  BedDouble,
-  Bath,
-  SquareCode,
-  Car,
-  Wind,
-  Droplets,
-  Sofa,
-  ParkingCircle,
-  FlameKindling,
-  BookMarked,
-  Thermometer,
-  ShirtIcon,
-  ShowerHead,
-  UtensilsCrossed,
-  CheckCircle2,
   TrendingUp,
+  Shield,
+  Building2,
+  CheckCircle2,
 } from "lucide-react";
 
-// ─── Types ──────────────────────────────────────────────────────────────────
+// ─── Unit data ────────────────────────────────────────────────────────────────
 
-type Facility = { icon: React.ElementType; label: string };
-
-interface Unit {
-  id: string;
-  label: string;
-  size: string;
-  bed: string;
-  bath: string;
-  price: string;
-  period: string;
-  units: number;
-  available: number;
-  image: string;
-  description: string;
-  extras: string[];
-  unitFacilities: Facility[];
-  roomFacilities: Facility[];
-}
-
-// ─── Shared facility definitions ────────────────────────────────────────────
-
-const BASE_UNIT_FACILITIES: Facility[] = [
-  { icon: Car, label: "Car Port" },
-  { icon: FlameKindling, label: "Balkon" },
-  { icon: Droplets, label: "Toren Air" },
-  { icon: Sofa, label: "Ruang Tamu" },
-  { icon: ParkingCircle, label: "Parkir Motor" },
+const units: { id: string; status: "Available" | "Reserved" }[] = [
+  { id: "01", status: "Available" },
+  { id: "02", status: "Available" },
+  { id: "03", status: "Available" },
+  { id: "04", status: "Available" },
+  { id: "05", status: "Available" },
 ];
 
-const BASE_ROOM_FACILITIES: Facility[] = [
-  { icon: BedDouble, label: "Kasur" },
-  { icon: Wind, label: "AC" },
-  { icon: BookMarked, label: "Meja Belajar" },
-  { icon: Thermometer, label: "Water Heater" },
-  { icon: ShirtIcon, label: "Lemari Pakaian" },
-  { icon: ShowerHead, label: "Kamar Mandi Dalam" },
-];
-
-// ─── Units ──────────────────────────────────────────────────────────────────
-
-const units: Unit[] = [
-  {
-    id: "standard",
-    label: "Standard",
-    size: "12 to 15 sqm",
-    bed: "Single bed",
-    bath: "Shared bathroom",
-    price: "IDR 2.500.000",
-    period: "/bulan",
-    units: 8,
-    available: 3,
-    image: "/images/hekfield/facade-front.jpg",
-    description:
-      "An efficiently designed room with a single bed and access to shared bathrooms on each floor. Ideal for those who spend most of their day out and want a quiet, well-kept space to come home to.",
-    extras: ["Weekly housekeeping", "High-speed WiFi", "Shared pantry access"],
-    unitFacilities: BASE_UNIT_FACILITIES,
-    roomFacilities: BASE_ROOM_FACILITIES,
-  },
-  {
-    id: "suite",
-    label: "Suite",
-    size: "18 to 20 sqm",
-    bed: "Queen bed",
-    bath: "Private en-suite + balkon",
-    price: "IDR 3.200.000",
-    period: "/bulan",
-    units: 4,
-    available: 2,
-    image: "/images/hekfield/facade.jpg",
-    description:
-      "A generously proportioned room with a queen bed, private en-suite, and a private balcony overlooking the garden courtyard. Includes a kitchenette for those who prefer cooking in.",
-    extras: [
-      "Private en-suite",
-      "Private balkon",
-      "Dapur (kitchenette)",
-      "Weekly housekeeping",
-      "High-speed WiFi",
-    ],
-    unitFacilities: BASE_UNIT_FACILITIES,
-    roomFacilities: [
-      ...BASE_ROOM_FACILITIES,
-      { icon: UtensilsCrossed, label: "Dapur (Kitchenette)" },
-    ],
-  },
-  {
-    id: "signature",
-    label: "Signature",
-    size: "22+ sqm",
-    bed: "Queen bed",
-    bath: "Premium private bathroom",
-    price: "IDR 4.000.000",
-    period: "/bulan",
-    units: 2,
-    available: 1,
-    image: "/images/hekfield/facade.jpg",
-    description:
-      "Hekfield at its finest. The largest rooms in the estate, finished with premium fixtures, an oversized queen bed, and a private bathroom. Only two units exist. It shows.",
-    extras: [
-      "Premium private bathroom",
-      "Premium furnishing",
-      "Weekly housekeeping + linen change",
-      "Priority concierge",
-      "High-speed WiFi",
-    ],
-    unitFacilities: BASE_UNIT_FACILITIES,
-    roomFacilities: [
-      ...BASE_ROOM_FACILITIES,
-      { icon: UtensilsCrossed, label: "Dapur (Kitchenette)" },
-    ],
-  },
-];
-
-// ─── Investment data ─────────────────────────────────────────────────────────
-
-const investmentBenefits = [
-  "Kepemilikan SHM",
-  "Pengelolaan Auto Pilot",
-  "Full Furnished",
-  "3 Tipe Kamar Premium",
-  "NOI Tumbuh 5%/Tahun",
-  "Lokasi Koridor MRT",
-];
+// ─── Investment data ──────────────────────────────────────────────────────────
 
 const noiProjection = [
-  { year: "Tahun 1", noi: "~Rp 139 jt" },
-  { year: "Tahun 5", noi: "~Rp 169 jt" },
-  { year: "Tahun 10", noi: "~Rp 215 jt" },
+  { year: "Year 1", noi: "Rp 139 jt" },
+  { year: "Year 3", noi: "Rp 152 jt" },
+  { year: "Year 5", noi: "Rp 169 jt" },
+  { year: "Year 10", noi: "Rp 215 jt" },
 ];
 
-// ─── Component ───────────────────────────────────────────────────────────────
+const highlights = [
+  "SHM Ownership",
+  "Auto-Pilot Management",
+  "Full Furnished",
+  "NOI +5%/Year",
+];
+
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function HekfieldClient() {
-  const [active, setActive] = useState("standard");
-  const [floorplanOpen, setFloorplanOpen] = useState(false);
-
-  const unit = units.find((u) => u.id === active)!;
-
   return (
     <>
-      {/* ── Unit Selector ─────────────────────────────────────────────────── */}
-      <section className="bg-cream py-24 px-6">
+      {/* ── Reserve Your Unit ────────────────────────────────────────────── */}
+      <section className="bg-cream py-24 px-6" id="units">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
-              UNIT TYPES
+              UNIT AVAILABILITY
             </p>
-            <h2 className="font-playfair text-4xl text-navy">
-              Choose your space.
+            <h2 className="font-playfair text-4xl text-navy mb-6">
+              Reserve Your Unit
             </h2>
+            <p className="font-inter text-sm text-navy/60 max-w-2xl mx-auto leading-relaxed">
+              Phase 1 Hekfield offers only 5 units. Once reserved, ownership is
+              transferred via SHM (Sertifikat Hak Milik). This is not a rental
+              — it is an asset.
+            </p>
           </div>
 
-          {/* Tab Bar */}
-          <div className="flex border-b border-navy/15 mb-12">
-            {units.map((u) => (
-              <button
-                key={u.id}
-                onClick={() => setActive(u.id)}
-                className={`flex-1 pb-4 font-inter text-sm transition-colors duration-200 relative ${
-                  active === u.id
-                    ? "text-navy"
-                    : "text-navy/40 hover:text-navy/70"
-                }`}
+          {/* Unit grid — 2 cols desktop, 1 col mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
+            {units.map((unit, i) => (
+              <motion.div
+                key={unit.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="border border-navy/20 bg-cream p-6 flex flex-col gap-4 hover:border-navy/50 transition-colors duration-200"
               >
-                {u.label}
-                {active === u.id && (
-                  <motion.div
-                    layoutId="tab-indicator"
-                    className="absolute bottom-0 left-0 right-0 h-px bg-brass"
-                  />
-                )}
-              </button>
+                {/* Unit number + status */}
+                <div className="flex items-start justify-between">
+                  <span className="font-playfair text-3xl text-navy">
+                    Unit {unit.id}
+                  </span>
+                  <span
+                    className={`eyebrow text-[10px] px-2.5 py-1 tracking-[0.15em] ${
+                      unit.status === "Available"
+                        ? "bg-sage/15 text-sage"
+                        : "bg-sand text-navy/40"
+                    }`}
+                  >
+                    {unit.status.toUpperCase()}
+                  </span>
+                </div>
+
+                {/* Specs */}
+                <div className="space-y-1">
+                  <p className="font-inter text-xs text-navy/50">
+                    Size: ~22 sqm
+                  </p>
+                  <p className="font-inter text-xs text-navy/50">
+                    Type: SHM — Strata Title
+                  </p>
+                </div>
+
+                {/* CTA */}
+                <a
+                  href="#reserve"
+                  className="mt-auto block text-center px-4 py-2.5 border border-navy/30 text-navy font-inter text-xs tracking-wide hover:bg-navy hover:text-cream transition-colors duration-200"
+                >
+                  Express Interest
+                </a>
+              </motion.div>
             ))}
           </div>
 
-          {/* Unit Content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
-            >
-              {/* Left: image + floor plan */}
-              <div className="space-y-4">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={unit.image}
-                    alt={`Hekfield ${unit.label}, ${unit.size}`}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute top-3 left-3 bg-brass text-cream eyebrow text-[10px] px-3 py-1">
-                    {unit.label.toUpperCase()}
-                  </div>
-                </div>
-
-                {/* Floor Plan Block */}
-                <div className="bg-sand border border-navy/10 p-6">
-                  <div className="flex items-start gap-3 mb-4">
-                    <FileText
-                      size={18}
-                      className="text-brass mt-0.5 shrink-0"
-                      strokeWidth={1.5}
-                    />
-                    <div>
-                      <p className="font-inter text-sm font-medium text-navy mb-1">
-                        Denah Lantai (Tersedia)
-                      </p>
-                      <p className="font-inter text-xs text-navy/50 leading-relaxed">
-                        3 lantai (Lantai 1, 2 &amp; 3). Hubungi kami untuk
-                        detail lengkap denah unit pilihan Anda.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
-                    <a
-                      href="/images/hekfield/floorplan.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 border border-navy/20 text-navy font-inter text-xs hover:border-brass hover:text-brass transition-colors duration-200"
-                    >
-                      <ExternalLink size={12} />
-                      Lihat Denah
-                    </a>
-                    <a
-                      href="/images/hekfield/floorplan.pdf"
-                      download="Hekfield-Floorplan.pdf"
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-navy text-cream font-inter text-xs hover:bg-navy/80 transition-colors duration-200"
-                    >
-                      <Download size={12} />
-                      Unduh PDF
-                    </a>
-                  </div>
-                  <button
-                    onClick={() => setFloorplanOpen(!floorplanOpen)}
-                    className="mt-3 font-inter text-xs text-navy/40 underline hover:text-brass transition-colors"
-                  >
-                    {floorplanOpen
-                      ? "Sembunyikan preview"
-                      : "Tampilkan preview denah"}
-                  </button>
-                  <AnimatePresence>
-                    {floorplanOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 400, opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                        className="overflow-hidden mt-4"
-                      >
-                        <iframe
-                          src="/images/hekfield/floorplan.pdf#toolbar=0&navpanes=0"
-                          className="w-full h-full border border-navy/10"
-                          title="Hekfield Floor Plan"
-                        />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              </div>
-
-              {/* Right: specs, facilities, CTA */}
-              <div>
-                <h3 className="font-playfair text-3xl text-navy mb-2">
-                  {unit.label}
-                </h3>
-                <p className="font-inter text-sm text-navy/60 leading-relaxed mb-6">
-                  {unit.description}
-                </p>
-
-                {/* Quick specs */}
-                <div className="grid grid-cols-3 gap-3 mb-8">
-                  {[
-                    { icon: SquareCode, label: "Area", val: unit.size },
-                    {
-                      icon: BedDouble,
-                      label: "Bed",
-                      val: unit.bed.split(" ")[0] + " bed",
-                    },
-                    {
-                      icon: Bath,
-                      label: "Bath",
-                      val: unit.bath.startsWith("Private")
-                        ? "Private"
-                        : "Shared",
-                    },
-                  ].map(({ icon: Icon, label, val }) => (
-                    <div
-                      key={label}
-                      className="bg-sand px-3 py-3 text-center border border-navy/8"
-                    >
-                      <Icon
-                        size={14}
-                        className="text-brass mx-auto mb-1"
-                        strokeWidth={1.5}
-                      />
-                      <p className="font-inter text-[10px] text-navy/40 uppercase tracking-wide mb-0.5">
-                        {label}
-                      </p>
-                      <p className="font-inter text-xs text-navy font-medium">
-                        {val}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Fasilitas Unit */}
-                <div className="mb-6">
-                  <p className="eyebrow text-navy/40 text-[10px] mb-3 tracking-[0.18em]">
-                    FASILITAS UNIT
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {unit.unitFacilities.map(({ icon: Icon, label }) => (
-                      <div
-                        key={label}
-                        className="flex items-center gap-1.5 bg-sand border border-navy/8 px-3 py-1.5"
-                      >
-                        <Icon
-                          size={11}
-                          className="text-brass shrink-0"
-                          strokeWidth={1.5}
-                        />
-                        <span className="font-inter text-[11px] text-navy/70">
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Fasilitas Kamar */}
-                <div className="mb-8">
-                  <p className="eyebrow text-navy/40 text-[10px] mb-3 tracking-[0.18em]">
-                    FASILITAS KAMAR
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {unit.roomFacilities.map(({ icon: Icon, label }) => (
-                      <div
-                        key={label}
-                        className="flex items-center gap-1.5 bg-sand border border-navy/8 px-3 py-1.5"
-                      >
-                        <Icon
-                          size={11}
-                          className="text-sage shrink-0"
-                          strokeWidth={1.5}
-                        />
-                        <span className="font-inter text-[11px] text-navy/70">
-                          {label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Availability */}
-                <div className="flex items-center gap-2 mb-8">
-                  <span
-                    className={`w-2 h-2 rounded-full ${
-                      unit.available > 0 ? "bg-sage" : "bg-driftwood"
-                    }`}
-                  />
-                  <p className="font-inter text-xs text-navy/50">
-                    {unit.available > 0
-                      ? `${unit.available} of ${unit.units} units available`
-                      : "Fully occupied. Join the waitlist."}
-                  </p>
-                </div>
-
-                {/* Pricing + CTA */}
-                <div className="border-t border-navy/10 pt-6">
-                  <div className="flex items-baseline gap-1 mb-6">
-                    <span className="font-playfair text-3xl text-navy">
-                      {unit.price}
-                    </span>
-                    <span className="font-inter text-sm text-navy/50">
-                      {unit.period}
-                    </span>
-                  </div>
-                  <a
-                    href="#reserve"
-                    className="block w-full text-center px-6 py-3 bg-brass text-cream font-inter text-sm tracking-wide hover:bg-brass/90 transition-colors duration-200"
-                  >
-                    Reserve this unit
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          <p className="font-inter text-xs text-navy/35 text-center mt-8">
+            Units 01–05 available in Phase 1. Phase 2 to be announced.
+          </p>
         </div>
       </section>
 
-      {/* ── Investasi yang Menghasilkan ───────────────────────────────────── */}
+      {/* ── The Investment Case for Hekfield ─────────────────────────────── */}
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -430,124 +119,213 @@ export default function HekfieldClient() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7 }}
-            className="max-w-2xl mb-16"
+            className="max-w-3xl mb-16"
           >
             <p className="eyebrow text-brass/70 mb-4 tracking-[0.25em]">
-              UNTUK INVESTOR
+              INVESTMENT ANALYSIS
             </p>
             <h2 className="font-playfair text-4xl text-cream mb-4 leading-snug">
-              Bukan sekadar tempat tinggal.{" "}
-              <span className="text-brass">Sebuah aset.</span>
+              The Investment Case for Hekfield
             </h2>
             <p className="font-inter text-sm text-cream/55 leading-relaxed">
-              Hekfield dirancang untuk Anda yang ingin memiliki properti premium
-              yang bekerja untuk Anda. Dengan pengelolaan penuh oleh tim
-              Amaraloka, investasi ini bersifat pasif sepenuhnya.
+              Owning a Hekfield unit means owning an income-generating asset
+              with strata title. Here is what that looks like over time.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Investment benefits */}
+          {/* 4 Cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {/* Card 1: Annual Income Projection — dark navy with brass numbers */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-[#101d38] border border-brass/30 p-8"
             >
-              <p className="eyebrow text-cream/30 text-[10px] mb-6 tracking-[0.2em]">
-                KEUNGGULAN INVESTASI
-              </p>
-              <ul className="space-y-4">
-                {investmentBenefits.map((benefit, i) => (
-                  <motion.li
-                    key={benefit}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.15 + i * 0.07 }}
-                    className="flex items-center gap-3"
+              <div className="flex items-center gap-2 mb-6">
+                <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
+                <p className="eyebrow text-brass/70 text-[10px] tracking-[0.2em]">
+                  ANNUAL INCOME PROJECTION
+                </p>
+              </div>
+              <div className="space-y-3">
+                {[
+                  { label: "Target Occupancy", value: "92%" },
+                  { label: "Average Room Rate", value: "Rp 2.600.000/month" },
+                  { label: "Gross Income/year", value: "Rp 187.200.000" },
+                  { label: "Operating Cost (18%)", value: "Rp 33.696.000" },
+                ].map(({ label, value }) => (
+                  <div
+                    key={label}
+                    className="flex items-center justify-between border-b border-cream/8 pb-3"
                   >
-                    <CheckCircle2
-                      size={16}
-                      className="text-sage shrink-0"
-                      strokeWidth={1.5}
-                    />
-                    <span className="font-inter text-sm text-cream/80">
-                      {benefit}
+                    <span className="font-inter text-xs text-cream/50">
+                      {label}
                     </span>
-                  </motion.li>
+                    <span className="font-inter text-sm text-cream/80">
+                      {value}
+                    </span>
+                  </div>
                 ))}
-              </ul>
+                <div className="flex items-center justify-between pt-2">
+                  <span className="font-inter text-xs text-cream/60 font-medium">
+                    Net Operating Income
+                  </span>
+                  <span className="font-playfair text-xl text-brass">
+                    Rp 153.504.000/year
+                  </span>
+                </div>
+              </div>
             </motion.div>
 
-            {/* NOI Projection table */}
+            {/* Card 2: NOI Growth Over Time */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-navy/60 border border-cream/10 p-8"
             >
               <div className="flex items-center gap-2 mb-6">
                 <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
                 <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
-                  PROYEKSI NOI
+                  NOI GROWTH OVER TIME
                 </p>
               </div>
-
-              {/* Table */}
               <div className="border border-cream/10">
                 <div className="grid grid-cols-2 border-b border-cream/10">
-                  <div className="px-5 py-3">
-                    <span className="eyebrow text-cream/30 text-[10px] tracking-[0.15em]">
-                      PERIODE
+                  <div className="px-4 py-3">
+                    <span className="eyebrow text-cream/30 text-[10px] tracking-[0.12em]">
+                      YEAR
                     </span>
                   </div>
-                  <div className="px-5 py-3 border-l border-cream/10">
-                    <span className="eyebrow text-cream/30 text-[10px] tracking-[0.15em]">
-                      NET OPERATING INCOME
+                  <div className="px-4 py-3 border-l border-cream/10">
+                    <span className="eyebrow text-cream/30 text-[10px] tracking-[0.12em]">
+                      NOI/YEAR
                     </span>
                   </div>
                 </div>
                 {noiProjection.map((row, i) => (
-                  <motion.div
+                  <div
                     key={row.year}
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 + i * 0.1 }}
                     className={`grid grid-cols-2 ${
-                      i < noiProjection.length - 1 ? "border-b border-cream/10" : ""
+                      i < noiProjection.length - 1
+                        ? "border-b border-cream/10"
+                        : ""
                     }`}
                   >
-                    <div className="px-5 py-4">
+                    <div className="px-4 py-3.5">
                       <span className="font-inter text-sm text-cream/60">
                         {row.year}
                       </span>
                     </div>
-                    <div className="px-5 py-4 border-l border-cream/10">
-                      <span className="font-playfair text-lg text-brass">
+                    <div className="px-4 py-3.5 border-l border-cream/10">
+                      <span className="font-playfair text-base text-brass">
                         {row.noi}
                       </span>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-
-              <p className="font-inter text-[11px] text-cream/25 mt-4 leading-relaxed">
-                * Proyeksi berdasarkan occupancy 92% dan pertumbuhan sewa
-                5%/tahun. Bukan merupakan janji imbal hasil.
+              <p className="font-inter text-[10px] text-cream/25 mt-4 leading-relaxed">
+                Assumes 5% annual rent growth, consistent with Jakarta premium
+                kost market.
               </p>
+            </motion.div>
 
-              {/* CTA */}
-              <a
-                href="/contact"
-                className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 border border-brass/50 text-brass font-inter text-xs hover:bg-brass hover:text-cream transition-colors duration-200"
-              >
-                Diskusikan peluang investasi
-                <ExternalLink size={11} />
-              </a>
+            {/* Card 3: Why SHM Matters */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-navy/60 border border-cream/10 p-8"
+            >
+              <div className="flex items-center gap-2 mb-6">
+                <Shield size={16} className="text-brass" strokeWidth={1.5} />
+                <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
+                  WHY SHM MATTERS
+                </p>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  "Full legal ownership, not leasehold",
+                  "Can be sold, inherited, or used as collateral",
+                  "No annual license renewal required",
+                  "Asset appreciates with property value",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2
+                      size={15}
+                      className="text-sage shrink-0 mt-0.5"
+                      strokeWidth={1.5}
+                    />
+                    <span className="font-inter text-sm text-cream/70">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Card 4: The Passive Income Advantage */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-navy/60 border border-cream/10 p-8"
+            >
+              <div className="flex items-center gap-2 mb-6">
+                <Building2 size={16} className="text-brass" strokeWidth={1.5} />
+                <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
+                  THE PASSIVE INCOME ADVANTAGE
+                </p>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  "Property managed by Amaraloka (auto-pilot)",
+                  "Full furnishing included, no CapEx after purchase",
+                  "Monthly income distributed to owner",
+                  "Minimal owner involvement required",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2
+                      size={15}
+                      className="text-sage shrink-0 mt-0.5"
+                      strokeWidth={1.5}
+                    />
+                    <span className="font-inter text-sm text-cream/70">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           </div>
+
+          {/* Investment Highlights strip — 4 items in a row */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="grid grid-cols-2 md:grid-cols-4 border border-cream/10"
+          >
+            {highlights.map((item, i) => (
+              <div
+                key={item}
+                className={`px-6 py-5 text-center ${
+                  i < highlights.length - 1
+                    ? "border-b md:border-b-0 border-r-0 md:border-r border-cream/10"
+                    : ""
+                }`}
+              >
+                <p className="font-playfair text-sm text-cream/80">{item}</p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
     </>
