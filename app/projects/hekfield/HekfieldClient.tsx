@@ -10,14 +10,6 @@ import {
 
 // ─── Unit data ────────────────────────────────────────────────────────────────
 
-const units: { id: string; status: "Available" | "Reserved" }[] = [
-  { id: "01", status: "Available" },
-  { id: "02", status: "Available" },
-  { id: "03", status: "Available" },
-  { id: "04", status: "Available" },
-  { id: "05", status: "Available" },
-];
-
 // ─── Investment data ──────────────────────────────────────────────────────────
 
 const noiProjection = [
@@ -39,77 +31,6 @@ const highlights = [
 export default function HekfieldClient() {
   return (
     <>
-      {/* ── Reserve Your Unit ────────────────────────────────────────────── */}
-      <section className="bg-cream py-24 px-6" id="units">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
-              UNIT AVAILABILITY
-            </p>
-            <h2 className="font-playfair text-4xl text-navy mb-6">
-              Reserve Your Unit
-            </h2>
-            <p className="font-inter text-sm text-navy/60 max-w-2xl mx-auto leading-relaxed">
-              Phase 1 Hekfield offers only 5 units. Once reserved, ownership is
-              transferred via SHM (Sertifikat Hak Milik). This is not a rental
-              — it is an asset.
-            </p>
-          </div>
-
-          {/* Unit grid — 2 cols desktop, 1 col mobile */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-            {units.map((unit, i) => (
-              <motion.div
-                key={unit.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="border border-navy/20 bg-cream p-6 flex flex-col gap-4 hover:border-navy/50 transition-colors duration-200"
-              >
-                {/* Unit number + status */}
-                <div className="flex items-start justify-between">
-                  <span className="font-playfair text-3xl text-navy">
-                    Unit {unit.id}
-                  </span>
-                  <span
-                    className={`eyebrow text-[10px] px-2.5 py-1 tracking-[0.15em] ${
-                      unit.status === "Available"
-                        ? "bg-sage/15 text-sage"
-                        : "bg-sand text-navy/40"
-                    }`}
-                  >
-                    {unit.status.toUpperCase()}
-                  </span>
-                </div>
-
-                {/* Specs */}
-                <div className="space-y-1">
-                  <p className="font-inter text-xs text-navy/50">
-                    Size: ~22 sqm
-                  </p>
-                  <p className="font-inter text-xs text-navy/50">
-                    Type: SHM — Strata Title
-                  </p>
-                </div>
-
-                {/* CTA */}
-                <a
-                  href="#reserve"
-                  className="mt-auto block text-center px-4 py-2.5 border border-navy/30 text-navy font-inter text-xs tracking-wide hover:bg-navy hover:text-cream transition-colors duration-200"
-                >
-                  Express Interest
-                </a>
-              </motion.div>
-            ))}
-          </div>
-
-          <p className="font-inter text-xs text-navy/35 text-center mt-8">
-            Units 01–05 available in Phase 1. Phase 2 to be announced.
-          </p>
-        </div>
-      </section>
-
       {/* ── The Investment Case for Hekfield ─────────────────────────────── */}
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto">
