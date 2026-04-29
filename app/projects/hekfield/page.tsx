@@ -55,15 +55,6 @@ const nearbyPOIs = [
     places: [
       "Pondok Indah Mall",
       "Bintaro Xchange Mall",
-      "Lippo Mall Puri",
-    ],
-  },
-  {
-    category: "Dining & Leisure",
-    places: [
-      "Restoran & kafe koridor Kemang",
-      "Bintaro Plaza",
-      "Taman Kota Bintaro",
     ],
   },
 ];
