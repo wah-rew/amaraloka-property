@@ -10,7 +10,6 @@ const schema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email"),
   phone: z.string().min(8, "Please enter a valid phone number"),
-  unit: z.string().min(1, "Please select a preferred unit"),
   budget: z.string().min(1, "Please select a budget range"),
   message: z.string().optional(),
 });
@@ -30,7 +29,7 @@ export default function HekfieldBookingForm() {
 
   const buildWAText = (data: FormData) =>
     encodeURIComponent(
-      `Halo Hekfield Rempoa,\n\nSaya tertarik untuk berinvestasi di Hekfield Rempoa.\n\nNama: ${data.name}\nEmail: ${data.email}\nWA/Phone: ${data.phone}\nPreferred Unit: ${data.unit}\nBudget: ${data.budget}${data.message ? `\n\nPesan: ${data.message}` : ""}`
+      `Halo Hekfield Rempoa,\n\nSaya tertarik untuk berinvestasi di Hekfield Rempoa.\n\nNama: ${data.name}\nEmail: ${data.email}\nWA/Phone: ${data.phone}\nBudget: ${data.budget}${data.message ? `\n\nPesan: ${data.message}` : ""}`
     );
 
   const onSubmit = (data: FormData) => {
@@ -112,29 +111,7 @@ export default function HekfieldBookingForm() {
             )}
           </div>
 
-          {/* Preferred Unit */}
-          <div>
-            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
-              PREFERRED UNIT *
-            </label>
-            <select
-              {...register("unit")}
-              className="w-full bg-cream border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors appearance-none"
-            >
-              <option value="">Select unit...</option>
-              <option value="Unit 01">Unit 01</option>
-              <option value="Unit 02">Unit 02</option>
-              <option value="Unit 03">Unit 03</option>
-              <option value="Unit 04">Unit 04</option>
-              <option value="Unit 05">Unit 05</option>
-              <option value="No preference">No preference</option>
-            </select>
-            {errors.unit && (
-              <p className="mt-1 font-inter text-xs text-driftwood">
-                {errors.unit.message}
-              </p>
-            )}
-          </div>
+
 
           {/* Investment Budget Range */}
           <div className="sm:col-span-2">
