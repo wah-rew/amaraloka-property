@@ -120,10 +120,6 @@ export default function HomePage() {
                   />
                   {/* Subtle dark vignette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
-                  {/* Tag */}
-                  <span className="absolute top-4 left-4 bg-navy text-cream eyebrow text-[10px] px-3 py-1">
-                    COMING SOON
-                  </span>
                   {/* Bottom content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="font-playfair text-2xl text-white mb-1">

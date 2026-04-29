@@ -90,13 +90,6 @@ export default function HekfieldPage() {
           }}
         />
 
-        {/* COMING SOON badge */}
-        <div className="absolute top-6 left-6 z-10">
-          <span className="bg-navy text-cream eyebrow text-[10px] px-3 py-1 tracking-[0.18em]">
-            COMING SOON
-          </span>
-        </div>
-
         {/* Content, bottom left */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-20 pt-32 w-full">
           <FadeIn delay={0.1} direction="none">
