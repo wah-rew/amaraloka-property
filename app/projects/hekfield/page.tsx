@@ -188,26 +188,7 @@ export default function HekfieldPage() {
               />
             </div>
 
-            {/* Download fallback */}
-            <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/images/hekfield/floorplan.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-navy/20 text-navy font-inter text-xs tracking-wide hover:border-brass hover:text-brass transition-colors duration-200"
-              >
-                <FileText size={13} strokeWidth={1.5} />
-                View Floor Plan
-              </a>
-              <a
-                href="/images/hekfield/floorplan.pdf"
-                download="Hekfield-FloorPlan.pdf"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-cream font-inter text-xs tracking-wide hover:bg-navy/80 transition-colors duration-200"
-              >
-                <Download size={13} strokeWidth={1.5} />
-                Download PDF
-              </a>
-            </div>
+
           </FadeIn>
         </div>
       </section>
