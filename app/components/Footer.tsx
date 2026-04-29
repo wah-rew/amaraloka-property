@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -52,20 +52,6 @@ export default function Footer() {
         <div className="space-y-4">
           <p className="eyebrow text-cream/40 text-xs">Get in Touch</p>
           <div className="flex flex-col gap-3 text-sm text-cream/70 font-inter">
-            <a
-              href="mailto:hello@amaraloka.id"
-              className="flex items-center gap-2 hover:text-brass transition-colors"
-            >
-              <Mail size={14} />
-              hello@amaraloka.id
-            </a>
-            <a
-              href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`}
-              className="flex items-center gap-2 hover:text-brass transition-colors"
-            >
-              <Phone size={14} />
-              +62 812 3456 7890
-            </a>
             <span className="flex items-start gap-2">
               <MapPin size={14} className="mt-0.5 shrink-0" />
               Jakarta, Indonesia

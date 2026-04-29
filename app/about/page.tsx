@@ -53,48 +53,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Story */}
-      <section className="bg-cream py-24 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          <FadeIn>
-            <div className="space-y-5 font-inter text-sm text-slate leading-relaxed">
-              <p>
-                Amaraloka was founded in 2024 with a single, stubborn conviction:
-                that the co-living market in Indonesia was underserving people who
-                actually had taste. The category had become synonymous with
-                identical rooms, thin walls, and the aesthetics of a budget
-                airline.
-              </p>
-              <p>
-                We set out to build something different. Residences that felt
-                like boutique hotels, operated like a home, and held their value
-                like a property should. The name Amaraloka comes from
-                Sanskrit roots meaning &quot;a place of beauty.&quot; A small
-                manifesto embedded in our identity.
-              </p>
-              <p>
-                Our first project, Hekfield, takes its inspiration from the
-                Georgian estates of Hampshire: restrained exteriors, thoughtful
-                interiors, and an atmosphere of earned calm. It is the benchmark
-                for everything we will build.
-              </p>
-              <p>
-                We are deliberate. We are slow. We take on fewer projects so we
-                can do each one properly. That&apos;s not a limitation. It&apos;s
-                the point.
-              </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <div className="aspect-[3/4] bg-sand border border-navy/10 flex items-center justify-center">
-              <p className="font-inter text-xs text-navy/20 tracking-widest uppercase">
-                Founder Portrait
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">

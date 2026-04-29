@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import {
-  BookOpen,
-  Trees,
-  Wifi,
   Coffee,
   Sparkles,
   HeadphonesIcon,
-  MapPin,
 } from "lucide-react";
 import FadeIn from "../../components/FadeIn";
 import HekfieldClient from "./HekfieldClient";
@@ -22,21 +18,6 @@ export const metadata: Metadata = {
 };
 
 const amenities = [
-  {
-    icon: BookOpen,
-    title: "The Reading Room",
-    desc: "A library lounge stocked with curated books, complimentary coffee, and soft lighting.",
-  },
-  {
-    icon: Trees,
-    title: "The Garden",
-    desc: "A private outdoor courtyard. Calm, shaded, and made for doing nothing in particular.",
-  },
-  {
-    icon: Wifi,
-    title: "Co-working Lounge",
-    desc: "Ergonomic seating, high-speed fiber, and dedicated focus zones.",
-  },
   {
     icon: Coffee,
     title: "The Pantry",
@@ -289,23 +270,6 @@ export default function HekfieldPage() {
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            {/* Map placeholder */}
-            <FadeIn>
-              <div className="aspect-[4/3] bg-cream border border-sand flex flex-col items-center justify-center gap-3">
-                <MapPin size={28} className="text-navy/25" strokeWidth={1} />
-                <p className="font-inter text-xs text-navy/30 tracking-widest uppercase">
-                  Koridor MRT Lebak Bulus
-                </p>
-                <p className="font-inter text-[11px] text-navy/20">
-                  Jakarta Selatan, Indonesia
-                </p>
-                <p className="font-inter text-[10px] text-navy/15 mt-1">
-                  {/* TODO: Embed Google Maps iframe with exact address */}
-                  Peta interaktif segera hadir
-                </p>
-              </div>
-            </FadeIn>
-
             {/* POIs */}
             <FadeIn delay={0.15}>
               <div className="space-y-8">

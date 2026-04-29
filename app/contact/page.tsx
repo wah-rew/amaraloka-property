@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import FadeIn from "../components/FadeIn";
 import ContactForm from "./ContactForm";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -39,66 +39,7 @@ export default function ContactPage() {
           {/* Info */}
           <FadeIn delay={0.2}>
             <div className="space-y-10">
-              <div>
-                <p className="eyebrow text-brass text-[10px] mb-5 tracking-[0.2em]">
-                  GET IN TOUCH
-                </p>
-                <div className="space-y-4">
-                  {[
-                    {
-                      icon: Mail,
-                      label: "Email",
-                      value: "hello@amaraloka.id",
-                      href: "mailto:hello@amaraloka.id",
-                    },
-                    {
-                      icon: Phone,
-                      label: "WhatsApp",
-                      value: "+62 812 3456 7890",
-                      href: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`,
-                    },
-                    {
-                      icon: MapPin,
-                      label: "Location",
-                      value: "Jakarta Selatan, Indonesia",
-                      href: null,
-                    },
-                    {
-                      icon: Clock,
-                      label: "Hours",
-                      value: "Mon to Sat, 09:00 to 17:00 WIB",
-                      href: null,
-                    },
-                  ].map(({ icon: Icon, label, value, href }) => (
-                    <div key={label} className="flex items-start gap-3">
-                      <Icon
-                        size={15}
-                        className="text-brass mt-0.5 shrink-0"
-                        strokeWidth={1.5}
-                      />
-                      <div>
-                        <p className="font-inter text-[10px] text-navy/40 uppercase tracking-wide mb-0.5">
-                          {label}
-                        </p>
-                        {href ? (
-                          <a
-                            href={href}
-                            className="font-inter text-sm text-slate hover:text-brass transition-colors"
-                          >
-                            {value}
-                          </a>
-                        ) : (
-                          <p className="font-inter text-sm text-slate">
-                            {value}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border-t border-sand pt-8">
+              <div className="">
                 <p className="eyebrow text-brass text-[10px] mb-4 tracking-[0.2em]">
                   SCHEDULE A VISIT
                 </p>
@@ -120,15 +61,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map placeholder */}
-      <section className="bg-white h-64 flex items-center justify-center border-t border-sand">
-        <div className="text-center">
-          <MapPin size={24} className="text-navy/20 mx-auto mb-2" strokeWidth={1} />
-          <p className="font-inter text-xs text-navy/25 tracking-widest uppercase">
-            Map coming soon
-          </p>
-        </div>
-      </section>
+
     </>
   );
 }
