@@ -13,10 +13,10 @@ import {
 // ─── Investment data ──────────────────────────────────────────────────────────
 
 const noiProjection = [
-  { year: "Year 1", noi: "Rp 139 jt" },
-  { year: "Year 3", noi: "Rp 152 jt" },
-  { year: "Year 5", noi: "Rp 169 jt" },
-  { year: "Year 10", noi: "Rp 215 jt" },
+  { year: "Year 1", noi: "Rp 153 jt" },
+  { year: "Year 3", noi: "Rp 169 jt" },
+  { year: "Year 5", noi: "Rp 186 jt" },
+  { year: "Year 10", noi: "Rp 237 jt" },
 ];
 
 const highlights = [
