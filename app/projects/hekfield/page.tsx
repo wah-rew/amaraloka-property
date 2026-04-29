@@ -250,7 +250,7 @@ export default function HekfieldPage() {
             <FadeIn delay={0.25}>
               <div className="w-full aspect-[4/3] border border-navy/10 overflow-hidden">
                 <iframe
-                  src="https://maps.google.com/maps?q=Rempoa,+Ciputat+Timur,+Tangerang+Selatan&output=embed&z=15"
+                  src="https://maps.google.com/maps?q=-6.290863849532357,106.75763239429325&output=embed&z=17"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
