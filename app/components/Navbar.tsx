@@ -51,7 +51,6 @@ export default function Navbar() {
             { href: "/projects/hekfield", label: "Projects" },
             { href: "/blog", label: "Blog" },
             { href: "/about", label: "About" },
-            { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
             <Link
               key={href}
@@ -90,7 +89,6 @@ export default function Navbar() {
             { href: "/projects/hekfield", label: "Projects" },
             { href: "/blog", label: "Blog" },
             { href: "/about", label: "About" },
-            { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
             <Link
               key={href}
