@@ -34,6 +34,7 @@ export default function Footer() {
             {[
               { href: "/", label: "Home" },
               { href: "/projects/hekfield", label: "Hekfield Rempoa" },
+              { href: "/blog", label: "Blog" },
               { href: "/about", label: "About Us" },
               { href: "/contact", label: "Contact" },
             ].map(({ href, label }) => (

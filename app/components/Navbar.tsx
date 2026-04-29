@@ -17,7 +17,7 @@ export default function Navbar() {
   }, []);
 
   // Non-hero pages always show cream bg
-  const alwaysOpaque = pathname !== "/" && !pathname.startsWith("/projects");
+  const alwaysOpaque = pathname !== "/" && !pathname.startsWith("/projects") || pathname.startsWith("/blog");
   const opaque = alwaysOpaque || scrolled;
 
   return (
@@ -49,6 +49,7 @@ export default function Navbar() {
         <nav className="hidden md:flex items-center gap-8">
           {[
             { href: "/projects/hekfield", label: "Projects" },
+            { href: "/blog", label: "Blog" },
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
@@ -87,6 +88,7 @@ export default function Navbar() {
         <div className="md:hidden bg-cream border-t border-sand px-6 py-4 flex flex-col gap-4">
           {[
             { href: "/projects/hekfield", label: "Projects" },
+            { href: "/blog", label: "Blog" },
             { href: "/about", label: "About" },
             { href: "/contact", label: "Contact" },
           ].map(({ href, label }) => (
