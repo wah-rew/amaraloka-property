@@ -9,12 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: "#2C2C2C",
-        ivory: "#F4EFE6",
-        sage: "#8A9A7B",
-        brass: "#B08D57",
-        terracotta: "#A0522D",
-        linen: "#E8DFCF",
+        navy: "#1B2B4B",
+        navyLight: "#2C3E5D",
+        cream: "#F8F5EE",
+        white: "#FFFFFF",
+        sand: "#E8DDD0",
+        driftwood: "#9B7B5C",
+        brass: "#C4973A",
+        sage: "#7B9E87",
+        slate: "#6B7A8D",
+        rattan: "#D4B896",
       },
       fontFamily: {
         playfair: ["var(--font-playfair)", "Georgia", "serif"],

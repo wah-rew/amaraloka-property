@@ -33,10 +33,10 @@ export default function ContactForm() {
     return (
       <div className="py-16 text-center">
         <CheckCircle2 size={40} className="text-sage mx-auto mb-4" strokeWidth={1.5} />
-        <h3 className="font-playfair text-2xl text-charcoal mb-3">
+        <h3 className="font-playfair text-2xl text-navy mb-3">
           Message received.
         </h3>
-        <p className="font-inter text-sm text-charcoal/60">
+        <p className="font-inter text-sm text-navy/60">
           We&apos;ll be in touch within one business day.
         </p>
       </div>
@@ -51,17 +51,17 @@ export default function ContactForm() {
         { id: "subject", label: "SUBJECT", type: "text", placeholder: "How can we help?" },
       ].map(({ id, label, type, placeholder }) => (
         <div key={id}>
-          <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+          <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
             {label} *
           </label>
           <input
             {...register(id as keyof FormData)}
             type={type}
             placeholder={placeholder}
-            className="w-full bg-transparent border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-brass transition-colors"
+            className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors"
           />
           {errors[id as keyof FormData] && (
-            <p className="mt-1 font-inter text-xs text-terracotta">
+            <p className="mt-1 font-inter text-xs text-driftwood">
               {errors[id as keyof FormData]?.message}
             </p>
           )}
@@ -69,17 +69,17 @@ export default function ContactForm() {
       ))}
 
       <div>
-        <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+        <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
           MESSAGE *
         </label>
         <textarea
           {...register("message")}
           rows={5}
           placeholder="Tell us about your enquiry..."
-          className="w-full bg-transparent border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-brass transition-colors resize-none"
+          className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors resize-none"
         />
         {errors.message && (
-          <p className="mt-1 font-inter text-xs text-terracotta">
+          <p className="mt-1 font-inter text-xs text-driftwood">
             {errors.message.message}
           </p>
         )}
@@ -88,7 +88,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full px-6 py-3 bg-brass text-ivory font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
+        className="w-full px-6 py-3 bg-brass text-cream font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </button>

@@ -44,10 +44,10 @@ export default function HekfieldBookingForm() {
     return (
       <div className="max-w-lg mx-auto text-center py-16">
         <CheckCircle2 size={40} className="text-sage mx-auto mb-4" strokeWidth={1.5} />
-        <h3 className="font-playfair text-2xl text-charcoal mb-3">
+        <h3 className="font-playfair text-2xl text-navy mb-3">
           Terima kasih.
         </h3>
-        <p className="font-inter text-sm text-charcoal/60 leading-relaxed">
+        <p className="font-inter text-sm text-navy/60 leading-relaxed">
           Kami akan menghubungi Anda dalam 24 jam untuk mengonfirmasi
           ketersediaan unit.
         </p>
@@ -61,16 +61,16 @@ export default function HekfieldBookingForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Name */}
           <div>
-            <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               NAMA LENGKAP *
             </label>
             <input
               {...register("name")}
               placeholder="Budi Santoso"
-              className="w-full bg-transparent border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-brass transition-colors"
+              className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors"
             />
             {errors.name && (
-              <p className="mt-1 font-inter text-xs text-terracotta">
+              <p className="mt-1 font-inter text-xs text-driftwood">
                 {errors.name.message}
               </p>
             )}
@@ -78,17 +78,17 @@ export default function HekfieldBookingForm() {
 
           {/* Email */}
           <div>
-            <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               EMAIL *
             </label>
             <input
               {...register("email")}
               type="email"
               placeholder="budi@email.com"
-              className="w-full bg-transparent border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-brass transition-colors"
+              className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors"
             />
             {errors.email && (
-              <p className="mt-1 font-inter text-xs text-terracotta">
+              <p className="mt-1 font-inter text-xs text-driftwood">
                 {errors.email.message}
               </p>
             )}
@@ -96,17 +96,17 @@ export default function HekfieldBookingForm() {
 
           {/* Phone */}
           <div>
-            <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               NOMOR WHATSAPP *
             </label>
             <input
               {...register("phone")}
               type="tel"
               placeholder="08123456789"
-              className="w-full bg-transparent border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-brass transition-colors"
+              className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors"
             />
             {errors.phone && (
-              <p className="mt-1 font-inter text-xs text-terracotta">
+              <p className="mt-1 font-inter text-xs text-driftwood">
                 {errors.phone.message}
               </p>
             )}
@@ -114,20 +114,20 @@ export default function HekfieldBookingForm() {
 
           {/* Tier */}
           <div>
-            <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               TIPE UNIT *
             </label>
             <select
               {...register("tier")}
-              className="w-full bg-ivory border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal focus:outline-none focus:border-brass transition-colors appearance-none"
+              className="w-full bg-cream border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors appearance-none"
             >
               <option value="">Pilih tipe...</option>
-              <option value="Standard">Standard — IDR 2.500.000/bulan</option>
-              <option value="Suite">Suite — IDR 3.200.000/bulan</option>
-              <option value="Signature">Signature — IDR 4.000.000/bulan</option>
+              <option value="Standard">Standard (IDR 2.500.000/bulan)</option>
+              <option value="Suite">Suite (IDR 3.200.000/bulan)</option>
+              <option value="Signature">Signature (IDR 4.000.000/bulan)</option>
             </select>
             {errors.tier && (
-              <p className="mt-1 font-inter text-xs text-terracotta">
+              <p className="mt-1 font-inter text-xs text-driftwood">
                 {errors.tier.message}
               </p>
             )}
@@ -135,16 +135,16 @@ export default function HekfieldBookingForm() {
 
           {/* Move-in date */}
           <div className="sm:col-span-2">
-            <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               RENCANA TANGGAL MASUK *
             </label>
             <input
               {...register("moveIn")}
               type="date"
-              className="w-full sm:w-1/2 bg-ivory border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal focus:outline-none focus:border-brass transition-colors"
+              className="w-full sm:w-1/2 bg-cream border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors"
             />
             {errors.moveIn && (
-              <p className="mt-1 font-inter text-xs text-terracotta">
+              <p className="mt-1 font-inter text-xs text-driftwood">
                 {errors.moveIn.message}
               </p>
             )}
@@ -152,14 +152,14 @@ export default function HekfieldBookingForm() {
 
           {/* Message */}
           <div className="sm:col-span-2">
-            <label className="eyebrow text-charcoal/50 text-[10px] tracking-[0.18em] block mb-2">
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               PESAN (OPSIONAL)
             </label>
             <textarea
               {...register("message")}
               rows={4}
               placeholder="Ada pertanyaan? Tulis di sini..."
-              className="w-full bg-transparent border border-charcoal/20 px-4 py-3 font-inter text-sm text-charcoal placeholder:text-charcoal/30 focus:outline-none focus:border-brass transition-colors resize-none"
+              className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors resize-none"
             />
           </div>
         </div>
@@ -169,7 +169,7 @@ export default function HekfieldBookingForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex-1 px-6 py-3 bg-brass text-ivory font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
+            className="flex-1 px-6 py-3 bg-brass text-cream font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
           >
             {isSubmitting ? "Mengirim..." : "Submit Reservation"}
           </button>
@@ -178,14 +178,14 @@ export default function HekfieldBookingForm() {
             href={`https://wa.me/${waNumber}?text=${buildWAText(getValues())}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-sage text-sage font-inter text-sm hover:bg-sage hover:text-ivory transition-colors duration-200"
+            className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border border-sage text-sage font-inter text-sm hover:bg-sage hover:text-cream transition-colors duration-200"
           >
             <MessageCircle size={15} />
             Continue on WhatsApp
           </a>
         </div>
 
-        <p className="font-inter text-xs text-charcoal/35 text-center">
+        <p className="font-inter text-xs text-navy/35 text-center">
           Kami menghargai privasi Anda. Data Anda hanya digunakan untuk
           keperluan reservasi.
         </p>

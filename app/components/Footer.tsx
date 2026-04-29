@@ -3,13 +3,13 @@ import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-charcoal text-ivory">
+    <footer className="bg-navy text-cream">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand */}
         <div className="space-y-4">
           <div className="flex flex-col gap-[3px]">
             <p
-              className="font-playfair text-ivory text-lg font-medium"
+              className="font-playfair text-white text-lg font-medium"
               style={{ letterSpacing: "0.15em" }}
             >
               AMARALOKA
@@ -21,7 +21,7 @@ export default function Footer() {
               PROPERTY
             </p>
           </div>
-          <p className="font-inter text-ivory/60 text-sm leading-relaxed max-w-xs">
+          <p className="font-inter text-cream/60 text-sm leading-relaxed max-w-xs">
             Crafting quiet estates for modern living. Every property is built
             with intention, calm, and enduring quality.
           </p>
@@ -29,7 +29,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <div className="space-y-4">
-          <p className="eyebrow text-ivory/40 text-xs">Navigation</p>
+          <p className="eyebrow text-cream/40 text-xs">Navigation</p>
           <nav className="flex flex-col gap-3">
             {[
               { href: "/", label: "Home" },
@@ -40,7 +40,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="font-inter text-sm text-ivory/70 hover:text-brass transition-colors duration-200"
+                className="font-inter text-sm text-cream/70 hover:text-brass transition-colors duration-200"
               >
                 {label}
               </Link>
@@ -50,8 +50,8 @@ export default function Footer() {
 
         {/* Contact */}
         <div className="space-y-4">
-          <p className="eyebrow text-ivory/40 text-xs">Get in Touch</p>
-          <div className="flex flex-col gap-3 text-sm text-ivory/70 font-inter">
+          <p className="eyebrow text-cream/40 text-xs">Get in Touch</p>
+          <div className="flex flex-col gap-3 text-sm text-cream/70 font-inter">
             <a
               href="mailto:hello@amaraloka.id"
               className="flex items-center gap-2 hover:text-brass transition-colors"
@@ -74,11 +74,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-ivory/10 px-6 lg:px-10 py-5 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-        <p className="font-inter text-xs text-ivory/40">
+      <div className="border-t border-cream/10 px-6 lg:px-10 py-5 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+        <p className="font-inter text-xs text-cream/40">
           © {new Date().getFullYear()} Amaraloka Property. All rights reserved.
         </p>
-        <p className="font-inter text-xs text-ivory/30">
+        <p className="font-inter text-xs text-cream/30">
           Crafted with intention.
         </p>
       </div>

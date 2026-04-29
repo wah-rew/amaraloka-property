@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-linen min-h-[40vh] flex items-end px-6 pt-16">
+      <section className="bg-navy min-h-[40vh] flex items-end px-6 pt-16">
         <div className="max-w-6xl mx-auto pb-16 w-full">
           <FadeIn delay={0.1} direction="none">
             <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
@@ -21,7 +21,7 @@ export default function ContactPage() {
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h1 className="font-playfair text-5xl md:text-6xl text-charcoal leading-tight">
+            <h1 className="font-playfair text-5xl md:text-6xl text-white leading-tight">
               Let&apos;s talk.
             </h1>
           </FadeIn>
@@ -29,7 +29,7 @@ export default function ContactPage() {
       </section>
 
       {/* Form + Info */}
-      <section className="bg-ivory py-24 px-6">
+      <section className="bg-cream py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Form */}
           <FadeIn>
@@ -66,7 +66,7 @@ export default function ContactPage() {
                     {
                       icon: Clock,
                       label: "Hours",
-                      value: "Mon–Sat, 09:00–17:00 WIB",
+                      value: "Mon to Sat, 09:00 to 17:00 WIB",
                       href: null,
                     },
                   ].map(({ icon: Icon, label, value, href }) => (
@@ -77,18 +77,18 @@ export default function ContactPage() {
                         strokeWidth={1.5}
                       />
                       <div>
-                        <p className="font-inter text-[10px] text-charcoal/40 uppercase tracking-wide mb-0.5">
+                        <p className="font-inter text-[10px] text-navy/40 uppercase tracking-wide mb-0.5">
                           {label}
                         </p>
                         {href ? (
                           <a
                             href={href}
-                            className="font-inter text-sm text-charcoal/70 hover:text-brass transition-colors"
+                            className="font-inter text-sm text-slate hover:text-brass transition-colors"
                           >
                             {value}
                           </a>
                         ) : (
-                          <p className="font-inter text-sm text-charcoal/70">
+                          <p className="font-inter text-sm text-slate">
                             {value}
                           </p>
                         )}
@@ -98,19 +98,19 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="border-t border-charcoal/10 pt-8">
+              <div className="border-t border-sand pt-8">
                 <p className="eyebrow text-brass text-[10px] mb-4 tracking-[0.2em]">
                   SCHEDULE A VISIT
                 </p>
-                <p className="font-inter text-sm text-charcoal/60 leading-relaxed mb-4">
+                <p className="font-inter text-sm text-slate leading-relaxed mb-4">
                   We offer private viewings of Hekfield by appointment. Bring
-                  your questions — we&apos;ll bring the coffee.
+                  your questions. We will bring the coffee.
                 </p>
                 <a
                   href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi, I'd like to schedule a visit to Hekfield.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-sage text-ivory font-inter text-xs hover:bg-sage/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-white font-inter text-xs hover:bg-navyLight transition-colors"
                 >
                   Book via WhatsApp
                 </a>
@@ -121,11 +121,11 @@ export default function ContactPage() {
       </section>
 
       {/* Map placeholder */}
-      <section className="bg-linen h-64 flex items-center justify-center border-t border-charcoal/10">
+      <section className="bg-white h-64 flex items-center justify-center border-t border-sand">
         <div className="text-center">
-          <MapPin size={24} className="text-charcoal/20 mx-auto mb-2" strokeWidth={1} />
-          <p className="font-inter text-xs text-charcoal/25 tracking-widest uppercase">
-            Map — coming soon
+          <MapPin size={24} className="text-navy/20 mx-auto mb-2" strokeWidth={1} />
+          <p className="font-inter text-xs text-navy/25 tracking-widest uppercase">
+            Map coming soon
           </p>
         </div>
       </section>

@@ -21,7 +21,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Amaraloka Property — Crafting Quiet Estates",
+    default: "Amaraloka Property: Crafting Quiet Estates",
     template: "%s | Amaraloka Property",
   },
   description:
