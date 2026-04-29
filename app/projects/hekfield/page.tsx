@@ -245,6 +245,33 @@ export default function HekfieldPage() {
                 ))}
               </div>
             </FadeIn>
+
+            {/* Google Maps embed */}
+            <FadeIn delay={0.25}>
+              <div className="w-full aspect-[4/3] border border-navy/10 overflow-hidden">
+                <iframe
+                  src="https://maps.google.com/maps?q=Rempoa,+Ciputat+Timur,+Tangerang+Selatan&output=embed&z=15"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokasi Hekfield Rempoa"
+                />
+              </div>
+              <a
+                href="https://maps.app.goo.gl/JofDF5iCMBHvcW1h8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-4 font-inter text-xs text-brass border-b border-brass/40 pb-0.5 hover:border-brass transition-colors duration-200"
+              >
+                Buka di Google Maps
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </a>
+            </FadeIn>
           </div>
         </div>
       </section>
