@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Navy background -->
+  <rect width="32" height="32" rx="6" fill="#1B2B4B"/>
+  <!-- A lettermark in brass — clean serif style -->
+  <!-- Left leg of A -->
+  <path d="M8 24L14 8" stroke="#B08D57" stroke-width="2" stroke-linecap="round"/>
+  <!-- Right leg of A -->
+  <path d="M24 24L18 8" stroke="#B08D57" stroke-width="2" stroke-linecap="round"/>
+  <!-- Crossbar of A -->
+  <path d="M10.5 18.5H21.5" stroke="#B08D57" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Small dot below — property mark -->
+  <circle cx="16" cy="27" r="1" fill="#C4973A" opacity="0.6"/>
+</svg>

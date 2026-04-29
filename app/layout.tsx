@@ -20,6 +20,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/favicon.svg',
+  },
   title: {
     default: "Amaraloka Property: Crafting Quiet Estates",
     template: "%s | Amaraloka Property",
