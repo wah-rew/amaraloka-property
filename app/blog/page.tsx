@@ -22,16 +22,16 @@ export default function BlogPage() {
     <main className="bg-cream min-h-screen pt-24 pb-20">
       {/* Header */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10 mb-16">
+        {/* Thin decorative top bar */}
+        <div className="w-12 h-[3px] bg-brass mb-8" />
         <FadeIn>
-          <p
-            className="font-inter text-brass text-xs uppercase tracking-[0.25em] mb-4"
-          >
+          <p className="font-inter text-brass text-xs uppercase tracking-[0.25em] mb-5">
             WAWASAN PROPERTI
           </p>
-          <h1 className="font-playfair text-4xl md:text-5xl text-navy leading-tight">
+          <h1 className="font-playfair text-5xl md:text-6xl text-navy leading-tight">
             Panduan &amp; Perspektif
           </h1>
-          <p className="font-inter text-navy/60 text-base mt-4 max-w-xl leading-relaxed">
+          <p className="font-inter text-navy/55 text-base mt-5 max-w-xl leading-relaxed">
             Analisis mendalam, panduan praktis, dan wawasan pasar untuk investor
             properti yang serius.
           </p>
@@ -40,36 +40,36 @@ export default function BlogPage() {
 
       {/* Blog Grid */}
       <section className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-0">
           {blogPosts.map((post, index) => (
             <FadeIn key={post.slug} delay={index * 0.05}>
               <Link href={`/blog/${post.slug}`} className="group block h-full">
-                <article className="bg-white border border-sand h-full flex flex-col transition-shadow duration-300 group-hover:shadow-md">
-                  {/* Category Badge */}
-                  <div className="px-6 pt-6 pb-0">
-                    <span className="inline-block font-inter text-xs uppercase tracking-[0.2em] text-brass border border-brass px-3 py-1">
+                <article className="h-full flex flex-col py-8 border-b border-sand hover:shadow-sm transition-shadow duration-300">
+                  {/* Category */}
+                  <div className="mb-3">
+                    <span className="font-inter text-xs uppercase tracking-[0.2em] text-brass">
                       {post.category}
                     </span>
                   </div>
 
-                  {/* Content */}
-                  <div className="px-6 pt-4 pb-6 flex flex-col flex-1">
-                    <h2 className="font-playfair text-xl text-navy leading-snug mb-3 group-hover:text-brass transition-colors duration-200">
-                      {post.title}
-                    </h2>
-                    <p className="font-inter text-sm text-navy/60 leading-relaxed flex-1 mb-6">
-                      {post.excerpt}
-                    </p>
+                  {/* Title */}
+                  <h2 className="font-playfair text-xl text-navy leading-snug mb-3 group-hover:text-brass transition-colors duration-200">
+                    {post.title}
+                  </h2>
 
-                    {/* Meta */}
-                    <div className="flex items-center justify-between border-t border-sand pt-4">
-                      <span className="font-inter text-xs text-navy/40">
-                        {formatDate(post.date)}
-                      </span>
-                      <span className="font-inter text-xs text-navy/40">
-                        {post.readTime} baca
-                      </span>
-                    </div>
+                  {/* Excerpt */}
+                  <p className="font-inter text-sm text-navy/55 leading-relaxed flex-1 mb-5 line-clamp-2">
+                    {post.excerpt}
+                  </p>
+
+                  {/* Meta footer */}
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="font-inter text-xs text-navy/35">
+                      {formatDate(post.date)}
+                    </span>
+                    <span className="font-inter text-xs text-navy/35">
+                      {post.readTime} baca
+                    </span>
                   </div>
                 </article>
               </Link>
