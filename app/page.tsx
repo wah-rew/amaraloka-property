@@ -194,7 +194,7 @@ export default function HomePage() {
               href="/about"
               className="inline-flex items-center gap-2 font-inter text-sm text-brass border-b border-brass pb-0.5 hover:text-rattan hover:border-rattan transition-colors duration-200"
             >
-              Read Our Story <ArrowRight size={14} />
+              Read Our Values <ArrowRight size={14} />
             </Link>
           </FadeIn>
 
