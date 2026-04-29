@@ -183,7 +183,7 @@ export default function HomePage() {
               ABOUT AMARALOKA
             </p>
             <h2 className="font-playfair text-4xl text-white mb-6 leading-snug">
-              Building with intention since 2024.
+              Building with intention since 2025.
             </h2>
             <p className="font-inter text-sm text-cream/65 leading-relaxed mb-4">
               Amaraloka was founded on a simple belief: the places we live shape
