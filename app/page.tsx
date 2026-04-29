@@ -148,12 +148,12 @@ export default function HomePage() {
             {/* Arlington Rempoa */}
             <FadeIn delay={0.2}>
               <div>
-                <div className="relative overflow-hidden aspect-[4/3]">
+                <div className="relative overflow-hidden aspect-[4/3] bg-sand">
                   <Image
                     src="/images/arlington/facade.jpg"
                     alt="Arlington Rempoa by Amaraloka Property"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
