@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Coffee, Sparkles, HeadphonesIcon, FileText, Download } from "lucide-react";
+import { Coffee, Sparkles, HeadphonesIcon } from "lucide-react";
 import FadeIn from "../../components/FadeIn";
 import HekfieldClient from "./HekfieldClient";
 import HekfieldBookingForm from "./HekfieldBookingForm";
