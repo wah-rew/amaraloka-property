@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Coffee, Sparkles, HeadphonesIcon } from "lucide-react";
 import FadeIn from "../../components/FadeIn";
 import HekfieldClient from "./HekfieldClient";
-import HekfieldBookingForm from "./HekfieldBookingForm";
 import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
@@ -136,12 +135,6 @@ const risks = [
 ];
 
 export default function HekfieldPage() {
-  const isLeadCaptureEnabled = Boolean(
-    process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() &&
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim() &&
-      process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
-  );
-
   return (
     <>
       <section className="relative min-h-screen flex items-end overflow-hidden">
@@ -425,56 +418,25 @@ export default function HekfieldPage() {
       </section>
 
       <section className="bg-white py-24 px-6" id="reserve">
-        {isLeadCaptureEnabled ? (
-          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
-            <FadeIn>
-              <p className="eyebrow text-brass mb-4 tracking-[0.25em]">EXPRESS INTEREST</p>
-              <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
-                Bicara dulu, hitung pelan-pelan.
-              </h2>
-              <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-                Isi form ini bila Anda ingin menerima penjelasan tier, pricing, dan skenario return dengan ritme yang lebih tenang.
-              </p>
-              <p className="font-inter text-sm text-slate leading-relaxed mb-8">
-                Jika Anda lebih nyaman memulai lewat percakapan singkat, WhatsApp tetap terbuka sebagai jalur yang lebih cepat.
-              </p>
-              <a
-                href={PUBLIC_WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors duration-200"
-              >
-                Chat via WhatsApp
-              </a>
-            </FadeIn>
-
-            <FadeIn delay={0.12}>
-              <div className="border border-navy/10 bg-cream px-6 py-8 md:px-10 md:py-10">
-                <HekfieldBookingForm />
-              </div>
-            </FadeIn>
-          </div>
-        ) : (
-          <div className="max-w-4xl mx-auto text-center">
-            <FadeIn>
-              <p className="eyebrow text-brass mb-4 tracking-[0.25em]">EXPRESS INTEREST</p>
-              <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
-                Mulai dari percakapan yang sederhana.
-              </h2>
-              <p className="font-inter text-sm text-slate leading-relaxed max-w-2xl mx-auto mb-10">
-                Untuk saat ini kami melayani enquiry Hekfield Rempoa langsung via WhatsApp. Ini jalur tercepat untuk mendiskusikan Founding tier, pricing ladder, skema pembayaran, atau menjadwalkan visit.
-              </p>
-              <a
-                href={PUBLIC_WHATSAPP_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors duration-200"
-              >
-                Chat via WhatsApp
-              </a>
-            </FadeIn>
-          </div>
-        )}
+        <div className="max-w-4xl mx-auto text-center">
+          <FadeIn>
+            <p className="eyebrow text-brass mb-4 tracking-[0.25em]">EXPRESS INTEREST</p>
+            <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
+              Mulai dari percakapan yang sederhana.
+            </h2>
+            <p className="font-inter text-sm text-slate leading-relaxed max-w-2xl mx-auto mb-10">
+              Untuk saat ini kami melayani enquiry Hekfield Rempoa langsung via WhatsApp. Ini jalur tercepat untuk mendiskusikan Founding tier, pricing ladder, skema pembayaran, atau menjadwalkan visit.
+            </p>
+            <a
+              href={PUBLIC_WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors duration-200"
+            >
+              Chat via WhatsApp
+            </a>
+          </FadeIn>
+        </div>
       </section>
     </>
   );
