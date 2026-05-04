@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { blogPosts } from "@/lib/blog-posts";
-import FadeIn from "@/app/components/FadeIn";
+import { blogPosts } from "../../lib/blog-posts";
+import FadeIn from "../components/FadeIn";
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);

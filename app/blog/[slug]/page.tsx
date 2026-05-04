@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getBlogPost, getAllSlugs } from "@/lib/blog-posts";
+import { getBlogPost, getAllSlugs } from "../../../lib/blog-posts";
 import type { Metadata } from "next";
 
 interface Props {

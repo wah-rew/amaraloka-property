@@ -5,12 +5,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle2 } from "lucide-react";
+import { useLeadCaptureForm } from "../../components/LeadCaptureForm";
 
 const schema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email"),
-  phone: z.string().min(8, "Please enter a valid phone number"),
-  budget: z.string().min(1, "Please select a budget range"),
+  name: z.string().min(2, "Nama minimal 2 karakter"),
+  email: z.string().email("Masukkan email yang valid"),
+  phone: z.string().min(8, "Masukkan nomor WhatsApp yang valid"),
+  budget: z.string().min(1, "Pilih preferensi pembayaran"),
   message: z.string().optional(),
 });
 
@@ -18,16 +19,33 @@ type FormData = z.infer<typeof schema>;
 
 export default function HekfieldBookingForm() {
   const [submitted, setSubmitted] = useState(false);
+  const { submitLead, submitError, submitSuccess, clearMessages } =
+    useLeadCaptureForm();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: FormData) => {
-    console.log("Hekfield Rempoa expression of interest:", data);
-    setSubmitted(true);
+  const onSubmit = async (data: FormData) => {
+    clearMessages();
+
+    try {
+      await submitLead({
+        source: "hekfield",
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        paymentPreference: data.budget,
+        message: data.message,
+      });
+      setSubmitted(true);
+      reset();
+    } catch {
+      return;
+    }
   };
 
   if (submitted) {
@@ -38,10 +56,9 @@ export default function HekfieldBookingForm() {
           className="text-sage mx-auto mb-4"
           strokeWidth={1.5}
         />
-        <h3 className="font-playfair text-2xl text-navy mb-3">Thank you.</h3>
+        <h3 className="font-playfair text-2xl text-navy mb-3">Terima kasih.</h3>
         <p className="font-inter text-sm text-navy/60 leading-relaxed">
-          We have received your expression of interest. Our team will be in
-          touch shortly to discuss unit availability, pricing, and next steps.
+          {submitSuccess || "Minat Anda sudah kami terima. Tim Amaraloka akan segera menghubungi Anda untuk membahas ketersediaan unit dan langkah berikutnya."}
         </p>
       </div>
     );
@@ -50,6 +67,11 @@ export default function HekfieldBookingForm() {
   return (
     <div className="max-w-2xl mx-auto">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        {submitError && (
+          <div className="rounded-sm border border-driftwood/30 bg-driftwood/10 px-4 py-3 font-inter text-sm text-driftwood">
+            {submitError}
+          </div>
+        )}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {/* Full Name */}
           <div>
@@ -147,13 +169,12 @@ export default function HekfieldBookingForm() {
             disabled={isSubmitting}
             className="w-full px-6 py-4 bg-brass text-cream font-inter text-sm tracking-wide hover:bg-brass/90 disabled:opacity-50 transition-colors duration-200"
           >
-            {isSubmitting ? "Mengirim..." : "Submit Expression of Interest"}
+            {isSubmitting ? "Mengirim..." : "Kirim Expression of Interest"}
           </button>
         </div>
 
         <p className="font-inter text-xs text-navy/35 text-center">
-          Your details are used solely to follow up on this inquiry. We do not
-          share your information with third parties.
+          Data Anda hanya digunakan untuk menindaklanjuti minat ini dan tidak dibagikan ke pihak ketiga.
         </p>
       </form>
     </div>
