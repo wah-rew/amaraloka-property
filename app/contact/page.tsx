@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import FadeIn from "../components/FadeIn";
-import ContactForm from "./ContactForm";
-
+import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -28,40 +27,32 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Form + Info */}
       <section className="bg-cream py-24 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-          {/* Form */}
+        <div className="max-w-4xl mx-auto">
           <FadeIn>
-            <ContactForm />
-          </FadeIn>
-
-          {/* Info */}
-          <FadeIn delay={0.2}>
-            <div className="space-y-10">
-              <div className="">
-                <p className="eyebrow text-brass text-[10px] mb-4 tracking-[0.2em]">
-                  SCHEDULE A VISIT
-                </p>
-                <p className="font-inter text-sm text-slate leading-relaxed mb-4">
-                  We offer private viewings of Hekfield Rempoa by appointment. Bring
-                  your questions. We will bring the coffee.
-                </p>
-                <a
-                  href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi, I'd like to schedule a visit to Hekfield Rempoa.")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-navy text-white font-inter text-xs hover:bg-navyLight transition-colors"
-                >
-                  Book via WhatsApp
-                </a>
-              </div>
+            <div className="border border-navy/10 bg-white p-10 md:p-14 text-center">
+              <p className="eyebrow text-brass text-[10px] mb-4 tracking-[0.2em]">
+                CHAT TO START
+              </p>
+              <h2 className="font-playfair text-4xl text-navy mb-5 leading-tight">
+                Langsung hubungi kami via WhatsApp.
+              </h2>
+              <p className="font-inter text-sm text-slate leading-relaxed max-w-xl mx-auto mb-8">
+                Untuk saat ini kami fokus pada percakapan langsung agar proses tanya jawab,
+                penjadwalan visit, dan diskusi investasi terasa lebih cepat dan personal.
+              </p>
+              <a
+                href={PUBLIC_WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors"
+              >
+                Chat via WhatsApp
+              </a>
             </div>
           </FadeIn>
         </div>
       </section>
-
-
     </>
   );
 }

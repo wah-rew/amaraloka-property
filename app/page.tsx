@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "./components/FadeIn";
 import { ArrowRight, MapPin } from "lucide-react";
+import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Amaraloka Property: Crafting Quiet Estates",
@@ -224,12 +225,14 @@ export default function HomePage() {
           <h2 className="font-playfair text-4xl text-cream mb-8">
             Let&apos;s build something lasting.
           </h2>
-          <Link
-            href="/contact"
+          <a
+            href={PUBLIC_WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-8 py-3 border border-brass text-brass font-inter text-sm tracking-wide hover:bg-brass hover:text-white transition-colors duration-200"
           >
-            Start a Conversation
-          </Link>
+            Chat via WhatsApp
+          </a>
         </FadeIn>
       </section>
     </>

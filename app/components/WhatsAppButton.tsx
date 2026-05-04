@@ -1,16 +1,12 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
+import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export default function WhatsAppButton() {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "6281234567890";
-  const message = encodeURIComponent(
-    "Hi Hekfield Rempoa, I'd like to know more about available units."
-  );
-
   return (
     <a
-      href={`https://wa.me/${number}?text=${message}`}
+      href={PUBLIC_WHATSAPP_LINK}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -64,12 +65,14 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link
-            href="/contact"
+          <a
+            href={PUBLIC_WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-2 px-5 py-2 bg-navy text-white text-sm font-inter tracking-wide hover:bg-navyLight transition-colors duration-200"
           >
-            Schedule a Visit
-          </Link>
+            Chat via WhatsApp
+          </a>
         </nav>
 
         {/* Mobile toggle */}
@@ -99,13 +102,15 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <Link
-            href="/contact"
+          <a
+            href={PUBLIC_WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-5 py-2 bg-navy text-white text-sm font-inter text-center hover:bg-navyLight transition-colors"
             onClick={() => setMenuOpen(false)}
           >
-            Schedule a Visit
-          </Link>
+            Chat via WhatsApp
+          </a>
         </div>
       )}
     </header>

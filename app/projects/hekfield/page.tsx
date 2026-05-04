@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Coffee, Sparkles, HeadphonesIcon } from "lucide-react";
 import FadeIn from "../../components/FadeIn";
 import HekfieldClient from "./HekfieldClient";
-import HekfieldBookingForm from "./HekfieldBookingForm";
+import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Hekfield Rempoa Strata Title Kost Investment by Amaraloka",
@@ -276,22 +276,38 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      {/* ── Express Interest Form ─────────────────────────────────────────── */}
       <section className="bg-cream py-24 px-6" id="reserve">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              EXPRESS INTEREST
+              CHAT VIA WHATSAPP
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-4">
-              Express Interest in Hekfield Rempoa
+              Bicara langsung dengan tim Amaraloka.
             </h2>
-            <p className="font-inter text-sm text-slate text-center mb-16 max-w-md mx-auto leading-relaxed">
-              We will contact you to discuss unit availability, pricing, and
-              next steps. No commitment required.
+            <p className="font-inter text-sm text-slate text-center mb-12 max-w-xl mx-auto leading-relaxed">
+              Untuk saat ini kami menyederhanakan proses enquiry agar lebih cepat.
+              Klik WhatsApp di bawah untuk tanya unit tersedia, skema pembayaran,
+              atau jadwalkan visit ke Hekfield Rempoa.
             </p>
           </FadeIn>
-          <HekfieldBookingForm />
+
+          <FadeIn delay={0.15}>
+            <div className="border border-navy/10 bg-white px-8 py-10 md:px-12 md:py-12 text-center">
+              <p className="font-inter text-sm text-slate leading-relaxed max-w-lg mx-auto mb-8">
+                Anda akan langsung terhubung ke WhatsApp kami. Lebih cepat, lebih personal,
+                dan enak untuk diskusi detail investasi.
+              </p>
+              <a
+                href={PUBLIC_WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors duration-200"
+              >
+                Chat via WhatsApp
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </section>
     </>

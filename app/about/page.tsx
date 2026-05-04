@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import FadeIn from "../components/FadeIn";
 import { ArrowRight } from "lucide-react";
+import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "About",
@@ -87,12 +87,14 @@ export default function AboutPage() {
           <h2 className="font-playfair text-4xl text-cream mb-8">
             Interested in what we&apos;re building?
           </h2>
-          <Link
-            href="/contact"
+          <a
+            href={PUBLIC_WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 border border-brass text-brass font-inter text-sm tracking-wide hover:bg-brass hover:text-white transition-colors duration-200"
           >
-            Get in Touch <ArrowRight size={14} />
-          </Link>
+            Chat via WhatsApp <ArrowRight size={14} />
+          </a>
         </FadeIn>
       </section>
     </>
