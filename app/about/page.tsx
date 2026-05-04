@@ -4,64 +4,61 @@ import { ArrowRight } from "lucide-react";
 import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Tentang",
   description:
-    "Amaraloka Property is a boutique developer building residences that honor craftsmanship, calm, and the rituals of everyday life.",
+    "Amaraloka Property adalah developer butik yang membangun hunian dengan craftsmanship, ketenangan, dan ritme hidup sehari-hari sebagai dasar.",
 };
 
 const values = [
   {
-    word: "Craftsmanship",
-    desc: "We sweat the details others overlook: materials, proportions, the weight of a door handle.",
+    word: "Ketelitian Kriya",
+    desc: "Kami memberi perhatian pada detail yang sering terlewat, dari material dan proporsi hingga rasa saat sebuah ruang digunakan.",
   },
   {
-    word: "Calm",
-    desc: "Our properties are designed as antidotes to noise. Quiet is a design choice.",
+    word: "Ketenangan",
+    desc: "Properti kami dirancang sebagai penyeimbang dari kebisingan. Tenang adalah keputusan desain.",
   },
   {
-    word: "Community",
-    desc: "The right neighbours make a home. We curate residents as carefully as we curate spaces.",
+    word: "Komunitas",
+    desc: "Tetangga yang tepat membuat sebuah tempat terasa utuh. Kami memilih penghuni seteliti kami memilih ruang.",
   },
   {
-    word: "Continuity",
-    desc: "We build for decades. Every decision is tested against one question: will this age well?",
+    word: "Keberlanjutan",
+    desc: "Kami membangun untuk waktu yang panjang. Setiap keputusan diuji dengan satu pertanyaan, apakah ini akan menua dengan baik?",
   },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
       <section className="bg-navy min-h-[60vh] flex items-center px-6 pt-16">
         <div className="max-w-6xl mx-auto py-24 w-full">
           <FadeIn delay={0.1} direction="none">
             <p className="eyebrow text-brass mb-6 tracking-[0.25em]">
-              ABOUT AMARALOKA
+              TENTANG AMARALOKA
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <h1 className="font-playfair text-5xl md:text-6xl text-white max-w-2xl leading-tight mb-6">
-              We build places worth belonging to.
+              Kami membangun tempat yang layak dimiliki.
             </h1>
           </FadeIn>
           <FadeIn delay={0.35}>
             <p className="font-inter text-lg text-cream/60 max-w-lg leading-relaxed">
-              A boutique property developer founded on the belief that where you
-              live shapes who you become.
+              Developer properti butik yang lahir dari keyakinan bahwa tempat tinggal ikut membentuk arah hidup seseorang.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Values */}
       <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              OUR VALUES
+              NILAI KAMI
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-16">
-              Four words we live by.
+              Empat hal yang kami pegang.
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -81,11 +78,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="bg-navy py-20 px-6 text-center">
         <FadeIn>
           <h2 className="font-playfair text-4xl text-cream mb-8">
-            Interested in what we&apos;re building?
+            Tertarik dengan yang sedang kami bangun?
           </h2>
           <a
             href={PUBLIC_WHATSAPP_LINK}
@@ -93,7 +89,7 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-3 border border-brass text-brass font-inter text-sm tracking-wide hover:bg-brass hover:text-white transition-colors duration-200"
           >
-            Chat via WhatsApp <ArrowRight size={14} />
+            Hubungi via WhatsApp <ArrowRight size={14} />
           </a>
         </FadeIn>
       </section>

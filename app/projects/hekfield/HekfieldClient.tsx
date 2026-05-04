@@ -5,7 +5,7 @@ import { Shield, TrendingUp, Landmark, BadgeCheck } from "lucide-react";
 
 const tierPricing = [
   {
-    tier: "Founding Tier",
+    tier: "Tier Founding",
     units: "Unit 1-2",
     price: "Rp 1,85 M",
     capRate: "7,1%",
@@ -14,26 +14,26 @@ const tierPricing = [
     benefits: [
       "Guaranteed minimum NOI Rp 110 jt di Year 1",
       "First right of refusal untuk Hekfield Phase 2",
-      "Quarterly investor report",
-      "Locked price sebelum tier berikutnya naik",
+      "Laporan investor triwulanan",
+      "Harga terkunci sebelum tier berikutnya naik",
     ],
   },
   {
-    tier: "Phase 1",
+    tier: "Tahap 1",
     units: "Unit 3-4",
     price: "Rp 1,95 M",
     capRate: "6,7%",
     irr: "9,3%",
     multiple: "2,07x",
     benefits: [
-      "Free management fee untuk 6 bulan pertama",
-      "Standard premium furnishing",
-      "Quarterly investor report",
-      "Masuk di fase harga publik pertama",
+      "Management fee gratis untuk 6 bulan pertama",
+      "Furnitur premium standar",
+      "Laporan investor triwulanan",
+      "Masuk pada fase harga publik pertama",
     ],
   },
   {
-    tier: "Final",
+    tier: "Tahap Final",
     units: "Unit 5",
     price: "Rp 2,10 M",
     capRate: "6,3%",
@@ -41,25 +41,25 @@ const tierPricing = [
     multiple: "1,92x",
     benefits: [
       "Harga mengikuti milestone konstruksi terakhir",
-      "Unit tetap fully managed",
-      "Quarterly investor report",
+      "Unit tetap dikelola penuh",
+      "Laporan investor triwulanan",
       "Tetap mendapat struktur legal SHM yang sama",
     ],
   },
 ];
 
 const conservativeProjection = [
-  { label: "Gross Potential Income", value: "Rp 188,4 jt / year" },
+  { label: "Pendapatan Kotor Potensial", value: "Rp 188,4 jt / tahun" },
   { label: "Vacancy & Loss (10%)", value: "(Rp 18,84 jt)" },
-  { label: "Effective Gross Income", value: "Rp 169,56 jt" },
-  { label: "Operating Expenses (22%)", value: "(Rp 37,303 jt)" },
-  { label: "Net Operating Income", value: "Rp 132,257 jt / year" },
-  { label: "CapEx Reserve (5%)", value: "(Rp 8,478 jt)" },
+  { label: "Pendapatan Kotor Efektif", value: "Rp 169,56 jt" },
+  { label: "Biaya Operasional (22%)", value: "(Rp 37,303 jt)" },
+  { label: "Net Operating Income", value: "Rp 132,257 jt / tahun" },
+  { label: "Cadangan CapEx (5%)", value: "(Rp 8,478 jt)" },
 ];
 
 const conservativeMilestones = [
   { label: "Year 1 (Ramp-up)", value: "Rp 102 jt" },
-  { label: "Year 3+ (Stabilized)", value: "Rp 131 jt" },
+  { label: "Year 3+ (Stabil)", value: "Rp 131 jt" },
   { label: "Year 10", value: "Rp 174 jt" },
 ];
 
@@ -76,14 +76,13 @@ export default function HekfieldClient() {
             className="max-w-3xl mb-16"
           >
             <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
-              UNIT PRICING
+              HARGA UNIT
             </p>
             <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
-              Unit Pricing &amp; Founding Owner Advantage
+              Harga Unit &amp; Keunggulan Pemilik Founding
             </h2>
             <p className="font-inter text-sm text-slate leading-relaxed">
-              Struktur harga dipublikasikan secara bertahap dan transparan. Harga naik
-              mengikuti milestone konstruksi, bukan tekanan artifisial.
+              Struktur harga dipublikasikan bertahap dan transparan. Kenaikan mengikuti milestone konstruksi, bukan tekanan artifisial.
             </p>
           </motion.div>
 
@@ -98,8 +97,8 @@ export default function HekfieldClient() {
                   <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Unit</th>
                   <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Harga</th>
                   <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Cap Rate</th>
-                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">10yr IRR</th>
-                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">10yr Multiple</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">IRR 10 Tahun</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Multiple 10 Tahun</th>
                 </tr>
               </thead>
               <tbody>
@@ -124,9 +123,9 @@ export default function HekfieldClient() {
                 <h3 className="font-playfair text-2xl text-navy mb-2">{item.price}</h3>
                 <p className="font-inter text-sm text-slate mb-4">{item.units}</p>
                 <div className="space-y-2 font-inter text-sm text-slate">
-                  <p>Cap rate: {item.capRate}</p>
-                  <p>10yr IRR: {item.irr}</p>
-                  <p>10yr Multiple: {item.multiple}</p>
+                  <p>Cap Rate: {item.capRate}</p>
+                  <p>IRR 10 tahun: {item.irr}</p>
+                  <p>Multiple 10 tahun: {item.multiple}</p>
                 </div>
               </div>
             ))}
@@ -146,7 +145,7 @@ export default function HekfieldClient() {
                   <BadgeCheck size={16} className="text-brass" strokeWidth={1.5} />
                   <p className="eyebrow text-navy/45 text-[10px] tracking-[0.2em]">{item.tier}</p>
                 </div>
-                <h3 className="font-playfair text-2xl text-navy mb-4">Benefit</h3>
+                <h3 className="font-playfair text-2xl text-navy mb-4">Keuntungan</h3>
                 <ul className="space-y-3">
                   {item.benefits.map((benefit) => (
                     <li key={benefit} className="font-inter text-sm text-slate leading-relaxed flex gap-3">
@@ -171,14 +170,13 @@ export default function HekfieldClient() {
             className="max-w-3xl mb-16"
           >
             <p className="eyebrow text-brass/70 mb-4 tracking-[0.25em]">
-              INVESTMENT ANALYSIS
+              ANALISIS INVESTASI
             </p>
             <h2 className="font-playfair text-4xl text-cream mb-4 leading-snug">
-              Conservative first. Base case shown for transparency.
+              Konservatif lebih dulu.
             </h2>
             <p className="font-inter text-sm text-cream/55 leading-relaxed">
-              Headline metrics di halaman ini menggunakan Conservative Scenario. Base Case tetap
-              kami tampilkan agar investor bisa menilai upside dengan kacamata yang lebih lengkap.
+              Metrik utama di halaman ini menggunakan skenario konservatif agar pembacaan return tetap disiplin dan dapat dipertanggungjawabkan.
             </p>
           </motion.div>
 
@@ -193,7 +191,7 @@ export default function HekfieldClient() {
               <div className="flex items-center gap-2 mb-6">
                 <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
                 <p className="eyebrow text-brass/70 text-[10px] tracking-[0.2em]">
-                  ANNUAL INCOME PROJECTION, CONSERVATIVE SCENARIO
+                  PROYEKSI PENDAPATAN TAHUNAN, SKENARIO KONSERVATIF
                 </p>
               </div>
               <div className="space-y-3">
@@ -205,10 +203,10 @@ export default function HekfieldClient() {
                 ))}
                 <div className="flex items-center justify-between pt-2 gap-4">
                   <span className="font-inter text-xs text-cream/60 font-medium">
-                    Cash Flow After Reserve
+                    Arus kas setelah pencadangan
                   </span>
                   <span className="font-playfair text-xl text-brass">
-                    Rp 123,779 jt / year
+                    Rp 123,779 jt / tahun
                   </span>
                 </div>
               </div>
@@ -224,7 +222,7 @@ export default function HekfieldClient() {
               <div className="flex items-center gap-2 mb-6">
                 <Landmark size={16} className="text-brass" strokeWidth={1.5} />
                 <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
-                  STABILIZED NOI MILESTONES
+                  MILESTONE NOI STABIL
                 </p>
               </div>
               <div className="border border-cream/10">
@@ -243,7 +241,7 @@ export default function HekfieldClient() {
                 ))}
               </div>
               <p className="font-inter text-[10px] text-cream/25 mt-4 leading-relaxed">
-                Asumsi: 75% occupancy Year 1, naik ke 90% stabilized, OPEX 22%, rent growth 4%, CapEx reserve 5%.
+                Asumsi: occupancy 75% di Year 1, naik ke 90% saat stabil, OPEX 22%, pertumbuhan sewa 4%, CapEx reserve 5%.
               </p>
             </motion.div>
           </div>
@@ -259,7 +257,7 @@ export default function HekfieldClient() {
               <div className="flex items-center gap-2 mb-6">
                 <Shield size={16} className="text-brass" strokeWidth={1.5} />
                 <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
-                  WHY SHM MATTERS
+                  MENGAPA SHM PENTING
                 </p>
               </div>
               <ul className="space-y-4">
@@ -267,7 +265,7 @@ export default function HekfieldClient() {
                   "Hak milik paling kuat untuk properti residensial",
                   "Dapat dijual, diwariskan, atau dijaminkan",
                   "Lebih mudah dipahami investor domestik dibanding struktur turunan",
-                  "Menambah kualitas exit story ketika aset matang",
+                  "Menambah kualitas narasi exit ketika aset matang",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brass shrink-0" />
@@ -279,7 +277,6 @@ export default function HekfieldClient() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

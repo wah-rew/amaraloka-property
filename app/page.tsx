@@ -6,30 +6,29 @@ import { ArrowRight, MapPin } from "lucide-react";
 import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Amaraloka Property: Crafting Quiet Estates",
+  title: "Amaraloka Property: Merancang Hunian yang Tenang",
   description:
-    "We build residences that honor craftsmanship, calm, and the rituals of everyday life.",
+    "Kami membangun hunian yang menghormati craftsmanship, ketenangan, dan ritme hidup sehari-hari.",
 };
 
 const philosophyItems = [
   {
-    title: "Considered Design",
-    body: "Every detail, from facade to fixtures, is intentional and timeless.",
+    title: "Desain yang Dipikirkan Matang",
+    body: "Setiap detail, dari fasad hingga finishing, dipilih dengan sengaja dan dibuat untuk bertahan lama.",
   },
   {
-    title: "Quiet Luxury",
-    body: "Refined materials and craftsmanship. Substance over spectacle.",
+    title: "Kemewahan yang Tenang",
+    body: "Material dan pengerjaan yang refined. Substansi lebih penting daripada kemeriahan.",
   },
   {
-    title: "Built to Last",
-    body: "Properties designed for decades, not trends.",
+    title: "Dibangun untuk Waktu yang Panjang",
+    body: "Properti yang dirancang untuk puluhan tahun, bukan untuk mengikuti tren sesaat.",
   },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ──────────────────────────────────────── */}
       <section className="min-h-screen bg-navy flex flex-col items-center justify-center px-6 text-center pt-16">
         <FadeIn delay={0.1} direction="none">
           <p className="eyebrow text-brass mb-6 tracking-[0.25em]">
@@ -38,13 +37,12 @@ export default function HomePage() {
         </FadeIn>
         <FadeIn delay={0.25}>
           <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl text-white max-w-3xl leading-tight">
-            Crafting quiet estates for modern living.
+            Merancang hunian yang tenang untuk hidup modern.
           </h1>
         </FadeIn>
         <FadeIn delay={0.4}>
           <p className="mt-6 font-inter text-lg text-cream/70 max-w-xl leading-relaxed">
-            We build residences that honor craftsmanship, calm, and the rituals
-            of everyday life.
+            Kami membangun hunian yang menghormati craftsmanship, ketenangan, dan ritme hidup sehari-hari.
           </p>
         </FadeIn>
         <FadeIn delay={0.55} className="mt-10 flex flex-wrap gap-4 justify-center">
@@ -52,29 +50,27 @@ export default function HomePage() {
             href="/projects/hekfield"
             className="px-7 py-3 bg-white text-navy font-inter text-sm tracking-wide hover:bg-cream transition-colors duration-200"
           >
-            Explore Projects
+            Lihat Proyek
           </Link>
           <Link
             href="/about"
             className="px-7 py-3 border border-cream/40 text-cream font-inter text-sm tracking-wide hover:border-cream hover:text-white transition-colors duration-200"
           >
-            Our Philosophy
+            Filosofi Kami
           </Link>
         </FadeIn>
 
-        {/* Subtle scroll indicator */}
         <FadeIn delay={0.9} className="mt-20 flex flex-col items-center gap-2">
-          <span className="eyebrow text-cream/30 text-[10px]">SCROLL</span>
+          <span className="eyebrow text-cream/30 text-[10px]">GULIR</span>
           <div className="w-px h-10 bg-cream/20" />
         </FadeIn>
       </section>
 
-      {/* ── Philosophy ────────────────────────────────── */}
       <section className="bg-cream py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-16 tracking-[0.25em]">
-              OUR PHILOSOPHY
+              FILOSOFI KAMI
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -94,40 +90,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Our Projects ──────────────────────────────── */}
       <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-3 tracking-[0.25em]">
-              OUR PROJECTS
+              PROYEK KAMI
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-16">
-              Residences by Amaraloka
+              Hunian dari Amaraloka
             </h2>
           </FadeIn>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Hekfield Rempoa Card */}
             <FadeIn delay={0.1}>
               <Link href="/projects/hekfield" className="group block">
                 <div className="relative overflow-hidden aspect-[4/3] bg-navy">
                   <Image
                     src="/images/hekfield/facade-front.jpg"
-                    alt="Hekfield Rempoa frontal view of the white European-style co-living townhouse with dark mansard roofs"
+                    alt="Tampak depan Hekfield Rempoa dengan townhouse bergaya Eropa berwarna putih dan atap mansard gelap"
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     priority
                   />
-                  {/* Subtle dark vignette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
-                  {/* Bottom content */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="font-playfair text-2xl text-white mb-1">
                       Hekfield Rempoa
                     </h3>
                     <p className="font-inter text-sm text-cream/80 mb-3">
-                      A quiet estate for people with high standards.
+                      Hunian tenang untuk mereka yang punya standar tinggi.
                     </p>
                     <span className="flex items-center gap-1 text-cream/60 font-inter text-xs">
                       <MapPin size={11} />
@@ -137,38 +129,35 @@ export default function HomePage() {
                 </div>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="font-inter text-sm text-slate">
-                    Co-living Rental
+                    Kost eksklusif
                   </span>
                   <span className="flex items-center gap-1 text-brass font-inter text-sm group-hover:gap-2 transition-all duration-200">
-                    View Project <ArrowRight size={14} />
+                    Lihat Proyek <ArrowRight size={14} />
                   </span>
                 </div>
               </Link>
             </FadeIn>
 
-            {/* Arlington Rempoa */}
             <FadeIn delay={0.2}>
               <div>
                 <div className="relative overflow-hidden aspect-[4/3]">
                   <Image
                     src="/images/arlington/facade.jpg"
-                    alt="Arlington Rempoa by Amaraloka Property"
+                    alt="Arlington Rempoa oleh Amaraloka Property"
                     fill
                     className="object-cover object-center"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
-                  {/* SOLD tag */}
                   <span className="absolute top-4 left-4 bg-driftwood text-cream eyebrow text-[10px] px-3 py-1 tracking-[0.15em]">
-                    SOLD
+                    TERJUAL
                   </span>
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3 className="font-playfair text-2xl text-white mb-1">Arlington Rempoa</h3>
-                    
                   </div>
                 </div>
                 <div className="mt-4">
-                  <p className="font-inter text-sm text-slate italic">A quiet house for those who have arrived.</p>
+                  <p className="font-inter text-sm text-slate italic">Rumah tenang untuk mereka yang sudah sampai.</p>
                 </div>
               </div>
             </FadeIn>
@@ -176,29 +165,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── About Preview ─────────────────────────────── */}
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <FadeIn>
             <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
-              ABOUT AMARALOKA
+              TENTANG AMARALOKA
             </p>
             <h2 className="font-playfair text-4xl text-white mb-6 leading-snug">
-              Building with intention since 2025.
+              Membangun dengan niat sejak 2025.
             </h2>
             <p className="font-inter text-sm text-cream/65 leading-relaxed mb-4">
-              Amaraloka was founded on a simple belief: the places we live shape
-              who we are. We design with restraint, build with precision, and
-              curate communities worth belonging to.
+              Amaraloka lahir dari keyakinan sederhana bahwa tempat tinggal membentuk siapa kita. Kami merancang dengan restraint, membangun dengan presisi, dan menghadirkan komunitas yang layak dihuni.
             </p>
             <p className="font-inter text-sm text-cream/65 leading-relaxed mb-8">
-              Every property reflects our commitment to the considered, the careful, and the enduring.
+              Setiap properti mencerminkan komitmen kami pada hal-hal yang dipikirkan matang, dikerjakan cermat, dan layak bertahan lama.
             </p>
             <Link
               href="/about"
               className="inline-flex items-center gap-2 font-inter text-sm text-brass border-b border-brass pb-0.5 hover:text-rattan hover:border-rattan transition-colors duration-200"
             >
-              Read Our Values <ArrowRight size={14} />
+              Baca Nilai Kami <ArrowRight size={14} />
             </Link>
           </FadeIn>
 
@@ -206,7 +192,7 @@ export default function HomePage() {
             <div className="aspect-[4/5] relative overflow-hidden">
               <Image
                 src="/images/amaraloka/interior.jpg"
-                alt="Amaraloka Property interior — considered spaces"
+                alt="Interior Amaraloka Property dengan ruang yang ditata penuh pertimbangan"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -216,14 +202,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA Band ──────────────────────────────────── */}
       <section className="bg-navy py-20 px-6 text-center border-t border-cream/10">
         <FadeIn>
           <p className="eyebrow text-brass/70 mb-4 tracking-[0.25em]">
-            GET IN TOUCH
+            HUBUNGI KAMI
           </p>
           <h2 className="font-playfair text-4xl text-cream mb-8">
-            Let&apos;s build something lasting.
+            Mari membangun sesuatu yang bertahan lama.
           </h2>
           <a
             href={PUBLIC_WHATSAPP_LINK}
@@ -231,7 +216,7 @@ export default function HomePage() {
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 border border-brass text-brass font-inter text-sm tracking-wide hover:bg-brass hover:text-white transition-colors duration-200"
           >
-            Chat via WhatsApp
+            Hubungi via WhatsApp
           </a>
         </FadeIn>
       </section>

@@ -6,9 +6,9 @@ import HekfieldClient from "./HekfieldClient";
 import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Hekfield Rempoa Strata Title Kost Investment by Amaraloka",
+  title: "Hekfield Rempoa, Investasi Kost SHM oleh Amaraloka",
   description:
-    "5 strata-title units. Founding tier from Rp 1,85 M. 10,0% IRR conservative case for Hekfield Rempoa by Amaraloka.",
+    "5 unit SHM. Founding tier mulai Rp 1,85 M. Skenario konservatif 10,0% IRR untuk Hekfield Rempoa oleh Amaraloka.",
   openGraph: {
     images: ["/images/hekfield/facade.jpg"],
   },
@@ -17,26 +17,26 @@ export const metadata: Metadata = {
 const amenities = [
   {
     icon: Coffee,
-    title: "The Pantry",
-    desc: "A shared kitchen equipped with espresso, induction cooktops, and premium cookware.",
+    title: "Pantry Bersama",
+    desc: "Dapur bersama dengan mesin espresso, kompor induksi, dan perlengkapan masak pilihan.",
   },
   {
     icon: Sparkles,
-    title: "Housekeeping Included",
-    desc: "Units professionally cleaned and maintained, fully managed for you.",
+    title: "Housekeeping Termasuk",
+    desc: "Unit dibersihkan dan dirawat secara profesional, dengan pengelolaan penuh untuk Anda.",
   },
   {
     icon: HeadphonesIcon,
-    title: "Concierge Service",
-    desc: "A responsive WhatsApp concierge handling tenant needs on your behalf.",
+    title: "Layanan Concierge",
+    desc: "Concierge WhatsApp yang responsif untuk menangani kebutuhan tenant atas nama Anda.",
   },
 ];
 
 const heroKpis = [
-  { value: "Rp 1,85 M", label: "Founding Price" },
-  { value: "Rp 131 jt", label: "NOI Stabilized" },
-  { value: "10,0%", label: "10yr IRR" },
-  { value: "2,18x", label: "10yr Total Return" },
+  { value: "Rp 1,85 M", label: "Harga Founding" },
+  { value: "Rp 131 jt", label: "NOI Stabil" },
+  { value: "10,0%", label: "IRR 10 Tahun" },
+  { value: "2,18x", label: "Total Return 10 Tahun" },
 ];
 
 const nearbyPOIs = [
@@ -67,67 +67,67 @@ const nearbyPOIs = [
 
 const exitPaths = [
   {
-    title: "Hold Forever",
-    summary: "Kumulatif NOI 10yr: Rp 1,29 M",
+    title: "Simpan Jangka Panjang",
+    summary: "NOI kumulatif 10 tahun: Rp 1,29 M",
     details: [
-      "NOI Year 10: Rp 174 jt / year",
+      "NOI Year 10: Rp 174 jt per tahun",
       "Dapat diwariskan atau dijaminkan untuk akses kredit",
-      "Cocok untuk investor yang ingin cashflow jangka panjang",
+      "Cocok untuk investor yang menginginkan cashflow jangka panjang",
     ],
   },
   {
-    title: "Jual Tahun ke-5",
-    summary: "Exit Value: Rp 2,11 M",
+    title: "Jual di Tahun ke-5",
+    summary: "Nilai exit: Rp 2,11 M",
     details: [
-      "5yr Total Multiple: 1,57x",
-      "Likuidasi setelah fase stabilized",
+      "Total multiple 5 tahun: 1,57x",
+      "Likuidasi setelah fase stabil",
       "Masuk akal bila target holding period Anda menengah",
     ],
   },
   {
-    title: "Jual Tahun ke-10",
-    summary: "Exit Value: Rp 2,59 M",
+    title: "Jual di Tahun ke-10",
+    summary: "Nilai exit: Rp 2,59 M",
     details: [
-      "10yr Total Multiple: 2,18x",
-      "Maksimasi capital gain dari apresiasi tanah",
-      "Berbasis Founding price Rp 1,85 M dan Conservative Scenario",
+      "Total multiple 10 tahun: 2,18x",
+      "Maksimalkan capital gain dari apresiasi tanah",
+      "Berbasis harga Founding Rp 1,85 M dan skenario konservatif",
     ],
   },
 ];
 
 const risks = [
   {
-    title: "Vacancy Risk",
-    risk: "Year 1 ramp-up bisa lebih lambat dari proyeksi.",
+    title: "Risiko Vacancy",
+    risk: "Ramp-up Year 1 bisa lebih lambat dari proyeksi.",
     mitigation:
       "Founding tier mendapat guaranteed minimum NOI Rp 110 jt pada Year 1.",
   },
   {
-    title: "Operasional & Management",
-    risk: "Kualitas tenant management mempengaruhi retensi dan review tenant.",
+    title: "Operasional & Manajemen",
+    risk: "Kualitas tenant management memengaruhi retensi dan ulasan tenant.",
     mitigation:
-      "Tim concierge dedicated dan quarterly performance report menjaga disiplin operasional.",
+      "Tim concierge khusus dan quarterly performance report menjaga disiplin operasional.",
   },
   {
-    title: "Market Risk",
-    risk: "Koridor MRT bisa menerima supply baru di segmen kost premium.",
+    title: "Risiko Pasar",
+    risk: "Koridor MRT dapat menerima supply baru di segmen kost premium.",
     mitigation:
       "Pricing mid-premium memberi buffer terhadap kompetitor tanpa mengorbankan positioning.",
   },
   {
     title: "Likuiditas",
-    risk: "Pasar resale strata kost Indonesia masih relatif thin.",
+    risk: "Pasar resale strata kost di Indonesia masih relatif tipis.",
     mitigation:
       "Amaraloka memfasilitasi resale dan membuka jalur first right of refusal untuk ekosistem berikutnya.",
   },
   {
     title: "CapEx Maintenance",
-    risk: "Furniture, AC, dan finishing perlu refresh setelah 5 sampai 7 tahun.",
+    risk: "Furniture, AC, dan finishing perlu diperbarui setelah 5 sampai 7 tahun.",
     mitigation:
-      "CapEx reserve 5% dibukukan dari NOI sejak periode stabilized.",
+      "CapEx reserve 5% dibukukan dari NOI sejak periode stabil.",
   },
   {
-    title: "Regulatory",
+    title: "Regulasi",
     risk: "Perubahan zonasi atau pajak properti dapat memengaruhi return.",
     mitigation:
       "SHM adalah bentuk hak milik tertinggi dan paling protected untuk kepemilikan properti.",
@@ -140,7 +140,7 @@ export default function HekfieldPage() {
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <Image
           src="/images/hekfield/facade.jpg"
-          alt="Hekfield Rempoa angle view of the white European-style townhouse with dark mansard roofs and climbing vines"
+          alt="Sudut bangunan Hekfield Rempoa dengan townhouse putih bergaya Eropa, atap mansard gelap, dan tanaman rambat"
           fill
           className="object-cover object-center"
           priority
@@ -157,7 +157,7 @@ export default function HekfieldPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-20 pt-32 w-full">
           <FadeIn delay={0.1} direction="none">
             <p className="eyebrow text-cream/60 mb-4 tracking-[0.25em]">
-              AN AMARALOKA PROPERTY
+              PROPERTI DARI AMARALOKA
             </p>
           </FadeIn>
           <FadeIn delay={0.25}>
@@ -167,12 +167,12 @@ export default function HekfieldPage() {
           </FadeIn>
           <FadeIn delay={0.4}>
             <p className="font-inter text-xl text-cream/75 max-w-2xl leading-relaxed mb-4">
-              A quiet estate for the quietly ambitious.
+              Hunian tenang untuk ambisi yang tidak perlu berisik.
             </p>
           </FadeIn>
           <FadeIn delay={0.5}>
             <p className="font-inter text-sm text-cream/60 max-w-2xl leading-relaxed mb-8">
-              5 strata-title units. Founding tier from Rp 1,85 M. 10,0% IRR conservative case.
+              5 unit SHM. Founding tier mulai Rp 1,85 M. Skenario konservatif 10,0% IRR.
             </p>
           </FadeIn>
 
@@ -194,34 +194,24 @@ export default function HekfieldPage() {
       <section className="bg-cream py-28 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
-            <p className="eyebrow text-brass mb-8 tracking-[0.25em]">THE STORY</p>
+            <p className="eyebrow text-brass mb-8 tracking-[0.25em]">CERITANYA</p>
             <h2 className="font-playfair text-4xl text-navy mb-8 leading-snug">
-              Inspired by the English countryside. Built for Jakarta.
+              Terinspirasi dari pedesaan Inggris. Dibangun untuk Jakarta.
             </h2>
           </FadeIn>
           <FadeIn delay={0.1}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-              Hekfield Rempoa takes its name from the Georgian estate in Hampshire, a
-              place defined by restraint, nature, and the quiet habits of a life
-              well-lived. We brought that spirit to Jakarta, translating it into
-              a premium kost property that feels less like accommodation and more
-              like an asset worth owning.
+              Hekfield Rempoa mengambil nama dari sebuah estate bergaya Georgian di Hampshire, tempat yang dikenal lewat restraint, alam, dan kebiasaan hidup yang tenang. Semangat itu kami bawa ke Jakarta, lalu kami terjemahkan menjadi properti kost premium yang terasa lebih dari sekadar tempat tinggal, melainkan aset yang layak dimiliki.
             </p>
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="font-inter text-sm text-slate leading-relaxed mb-5">
-              Phase 1 offers exactly five units each transferred under SHM
-              (Sertifikat Hak Milik), the highest form of property title in
-              Indonesia. Fully managed by Amaraloka, owners receive monthly
-              income without daily involvement.
+              Fase 1 menghadirkan tepat lima unit yang masing-masing dialihkan dengan SHM, bentuk hak milik tertinggi di Indonesia. Dengan pengelolaan penuh dari Amaraloka, pemilik menerima pendapatan bulanan tanpa perlu terlibat dalam operasional harian.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <p className="font-inter text-sm text-slate leading-relaxed">
-              Understated elegance runs through every decision, from the mansard
-              silhouette and climbing vines of the facade to the hand-selected
-              fixtures inside. This is a place designed for people who appreciate
-              the difference and understand the value of owning it.
+              Elegansi yang understated hadir di setiap keputusan, dari siluet mansard dan tanaman rambat pada fasad hingga detail interior yang dipilih satu per satu. Ini adalah tempat bagi mereka yang paham perbedaannya dan mengerti nilai untuk memilikinya.
             </p>
           </FadeIn>
         </div>
@@ -233,10 +223,10 @@ export default function HekfieldPage() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              FLOOR PLAN
+              DENAH
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-3">
-              Floor Plan
+              Denah Unit
             </h2>
             <p className="font-inter text-sm text-slate text-center mb-12 max-w-md mx-auto">
               Denah tersedia untuk ditinjau. Hubungi kami untuk detail lengkap.
@@ -247,7 +237,7 @@ export default function HekfieldPage() {
             <div className="border border-navy/10 overflow-hidden">
               <Image
                 src="/images/hekfield/floorplan.jpg"
-                alt="Denah Hekfield Rempoa: Lantai 1, 2, dan 3"
+                alt="Denah Hekfield Rempoa untuk lantai 1, 2, dan 3"
                 width={1200}
                 height={800}
                 className="w-full h-auto object-contain p-8 bg-white"
@@ -262,10 +252,10 @@ export default function HekfieldPage() {
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              AMENITIES
+              FASILITAS
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-16">
-              Everything you need. Nothing you don&apos;t.
+              Semua yang dibutuhkan. Tidak lebih dari itu.
             </h2>
           </FadeIn>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -286,10 +276,10 @@ export default function HekfieldPage() {
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              LOCATION
+              LOKASI
             </p>
             <h2 className="font-playfair text-4xl text-navy text-center mb-4">
-              Quietly central.
+              Tenang, namun tetap dekat ke mana-mana.
             </h2>
             <p className="font-inter text-sm text-slate text-center mb-16 max-w-md mx-auto">
               Di koridor MRT Lebak Bulus. Terhubung ke seluruh kota, tanpa kehilangan ketenangan.
@@ -352,13 +342,13 @@ export default function HekfieldPage() {
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="eyebrow text-brass mb-4 tracking-[0.25em] text-center">
-              EXIT SCENARIOS
+              SKENARIO EXIT
             </p>
             <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug text-center">
-              Tiga path likuiditas.
+              Tiga jalur likuiditas.
             </h2>
             <p className="font-inter text-sm text-slate leading-relaxed max-w-3xl mx-auto text-center mb-16">
-              Berbasis Founding price Rp 1,85 M dan Conservative Scenario. SHM memberi fleksibilitas untuk hold, dijual, diwariskan, atau dijaminkan.
+              Berbasis harga Founding Rp 1,85 M dan skenario konservatif. SHM memberi fleksibilitas untuk disimpan, dijual, diwariskan, atau dijaminkan.
             </p>
           </FadeIn>
 
@@ -390,7 +380,7 @@ export default function HekfieldPage() {
               RISIKO &amp; MITIGASI
             </p>
             <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug text-center">
-              Transparansi terlebih dulu.
+              Transparansi lebih dulu.
             </h2>
             <p className="font-inter text-sm text-slate leading-relaxed max-w-3xl mx-auto text-center mb-16">
               Setiap investasi punya risiko. Kami sajikan secara terbuka agar ekspektasi tetap rasional dan keputusan tetap nyaman dipertanggungjawabkan.
@@ -404,7 +394,7 @@ export default function HekfieldPage() {
                   <h3 className="font-playfair text-2xl text-navy mb-4">{item.title}</h3>
                   <div className="space-y-3">
                     <p className="font-inter text-sm text-slate leading-relaxed">
-                      <span className="text-navy font-medium">Risk:</span> {item.risk}
+                      <span className="text-navy font-medium">Risiko:</span> {item.risk}
                     </p>
                     <p className="font-inter text-sm text-slate leading-relaxed">
                       <span className="text-navy font-medium">Mitigasi:</span> {item.mitigation}
@@ -420,12 +410,12 @@ export default function HekfieldPage() {
       <section className="bg-white py-24 px-6" id="reserve">
         <div className="max-w-4xl mx-auto text-center">
           <FadeIn>
-            <p className="eyebrow text-brass mb-4 tracking-[0.25em]">EXPRESS INTEREST</p>
+            <p className="eyebrow text-brass mb-4 tracking-[0.25em]">SAMPAIKAN MINAT</p>
             <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
               Mulai dari percakapan yang sederhana.
             </h2>
             <p className="font-inter text-sm text-slate leading-relaxed max-w-2xl mx-auto mb-10">
-              Untuk saat ini kami melayani enquiry Hekfield Rempoa langsung via WhatsApp. Ini jalur tercepat untuk mendiskusikan Founding tier, pricing ladder, skema pembayaran, atau menjadwalkan visit.
+              Untuk saat ini kami melayani pertanyaan Hekfield Rempoa langsung via WhatsApp. Ini jalur tercepat untuk mendiskusikan Founding tier, pricing ladder, skema pembayaran, atau menjadwalkan kunjungan.
             </p>
             <a
               href={PUBLIC_WHATSAPP_LINK}
@@ -433,7 +423,7 @@ export default function HekfieldPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors duration-200"
             >
-              Chat via WhatsApp
+              Hubungi via WhatsApp
             </a>
           </FadeIn>
         </div>

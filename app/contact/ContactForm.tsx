@@ -68,9 +68,9 @@ export default function ContactForm() {
         </div>
       )}
       {[
-        { id: "name", label: "FULL NAME", type: "text", placeholder: "Nama Anda" },
+        { id: "name", label: "NAMA LENGKAP", type: "text", placeholder: "Nama Anda" },
         { id: "email", label: "EMAIL", type: "email", placeholder: "nama@email.com" },
-        { id: "subject", label: "SUBJECT", type: "text", placeholder: "Ada yang bisa kami bantu?" },
+        { id: "subject", label: "SUBJEK", type: "text", placeholder: "Ada yang bisa kami bantu?" },
       ].map(({ id, label, type, placeholder }) => (
         <div key={id}>
           <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
@@ -92,7 +92,7 @@ export default function ContactForm() {
 
       <div>
         <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
-          MESSAGE *
+          PESAN *
         </label>
         <textarea
           {...register("message")}

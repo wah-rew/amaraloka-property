@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }: Props) {
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M10 12L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          Kembali ke Blog
+          Kembali ke Artikel
         </Link>
 
         {/* Dateline: category + date on same line, small caps */}

@@ -12,7 +12,7 @@ function formatDate(dateStr: string): string {
 }
 
 export const metadata = {
-  title: "Blog | Amaraloka Property",
+  title: "Artikel | Amaraloka Property",
   description:
     "Panduan investasi properti, analisis kawasan, dan wawasan pasar dari tim Amaraloka Property.",
 };

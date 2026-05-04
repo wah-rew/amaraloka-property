@@ -19,15 +19,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/favicon.svg',
+    icon: "/icon.svg",
+    shortcut: "/favicon.svg",
   },
   title: {
-    default: "Amaraloka Property: Crafting Quiet Estates",
+    default: "Amaraloka Property: Merancang Hunian yang Tenang",
     template: "%s | Amaraloka Property",
   },
   description:
-    "Amaraloka Property builds residences that honor craftsmanship, calm, and the rituals of everyday life.",
+    "Amaraloka Property membangun hunian dengan craftsmanship, ketenangan, dan ritme hidup sehari-hari sebagai dasar.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://amaraloka-property.vercel.app"
   ),
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="id" className={`${playfair.variable} ${inter.variable}`}>
       <body>
         <AdminVisibility>{children}</AdminVisibility>
       </body>
