@@ -22,6 +22,12 @@ const baseLeadSchema = z.object({
     .optional()
     .or(z.literal(""))
     .transform((value) => value || null),
+  tierOfInterest: z
+    .string()
+    .trim()
+    .optional()
+    .or(z.literal(""))
+    .transform((value) => value || null),
   subject: z
     .string()
     .trim()
@@ -68,6 +74,7 @@ export type LeadRecord = {
   email: string | null;
   phone: string | null;
   payment_preference: string | null;
+  tier_of_interest: string | null;
   subject: string | null;
   message: string | null;
   status: "new" | "contacted" | "qualified" | "closed";
@@ -81,6 +88,7 @@ export function mapLeadInputToRow(input: LeadInsertInput) {
     email: input.email ?? null,
     phone: input.phone ?? null,
     payment_preference: input.paymentPreference ?? null,
+    tier_of_interest: input.tierOfInterest ?? null,
     subject: input.subject ?? null,
     message: input.message ?? null,
   };
@@ -114,7 +122,7 @@ export function normalizePhoneForWhatsApp(phone: string | null) {
   return digits;
 }
 
-export function buildAdminWhatsAppLeadUrl(lead: Pick<LeadRecord, "name" | "phone" | "email" | "source" | "payment_preference" | "subject" | "message">) {
+export function buildAdminWhatsAppLeadUrl(lead: Pick<LeadRecord, "name" | "phone" | "email" | "source" | "payment_preference" | "tier_of_interest" | "subject" | "message">) {
   const adminNumber = normalizePhoneForWhatsApp(getAdminWhatsAppNumber());
   if (!adminNumber) return null;
 
@@ -125,6 +133,7 @@ export function buildAdminWhatsAppLeadUrl(lead: Pick<LeadRecord, "name" | "phone
     `Phone: ${lead.phone || "-"}`,
     `Email: ${lead.email || "-"}`,
     `Payment preference: ${lead.payment_preference || "-"}`,
+    `Tier of interest: ${lead.tier_of_interest || "-"}`,
     `Subject: ${lead.subject || "-"}`,
     `Message: ${lead.message || "-"}`,
   ];

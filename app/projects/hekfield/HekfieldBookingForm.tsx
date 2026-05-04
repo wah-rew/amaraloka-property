@@ -11,7 +11,8 @@ const schema = z.object({
   name: z.string().min(2, "Nama minimal 2 karakter"),
   email: z.string().email("Masukkan email yang valid"),
   phone: z.string().min(8, "Masukkan nomor WhatsApp yang valid"),
-  budget: z.string().min(1, "Pilih preferensi pembayaran"),
+  tierOfInterest: z.string().min(1, "Pilih tier yang diminati"),
+  paymentPreference: z.string().min(1, "Pilih preferensi pembayaran"),
   message: z.string().optional(),
 });
 
@@ -38,7 +39,8 @@ export default function HekfieldBookingForm() {
         name: data.name,
         email: data.email,
         phone: data.phone,
-        paymentPreference: data.budget,
+        tierOfInterest: data.tierOfInterest,
+        paymentPreference: data.paymentPreference,
         message: data.message,
       });
       setSubmitted(true);
@@ -50,7 +52,7 @@ export default function HekfieldBookingForm() {
 
   if (submitted) {
     return (
-      <div className="max-w-lg mx-auto text-center py-16">
+      <div className="max-w-lg mx-auto text-center py-12">
         <CheckCircle2
           size={40}
           className="text-sage mx-auto mb-4"
@@ -58,7 +60,8 @@ export default function HekfieldBookingForm() {
         />
         <h3 className="font-playfair text-2xl text-navy mb-3">Terima kasih.</h3>
         <p className="font-inter text-sm text-navy/60 leading-relaxed">
-          {submitSuccess || "Minat Anda sudah kami terima. Tim Amaraloka akan segera menghubungi Anda untuk membahas ketersediaan unit dan langkah berikutnya."}
+          {submitSuccess ||
+            "Minat Anda sudah kami terima. Tim Amaraloka akan segera menghubungi Anda untuk membahas tier, pricing, dan langkah berikutnya."}
         </p>
       </div>
     );
@@ -72,15 +75,15 @@ export default function HekfieldBookingForm() {
             {submitError}
           </div>
         )}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Full Name */}
           <div>
             <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               FULL NAME *
             </label>
             <input
               {...register("name")}
-              placeholder="Your full name"
+              placeholder="Nama lengkap Anda"
               className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors"
             />
             {errors.name && (
@@ -90,7 +93,6 @@ export default function HekfieldBookingForm() {
             )}
           </div>
 
-          {/* Email */}
           <div>
             <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               EMAIL *
@@ -98,7 +100,7 @@ export default function HekfieldBookingForm() {
             <input
               {...register("email")}
               type="email"
-              placeholder="you@email.com"
+              placeholder="nama@email.com"
               className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors"
             />
             {errors.email && (
@@ -108,7 +110,6 @@ export default function HekfieldBookingForm() {
             )}
           </div>
 
-          {/* Phone / WhatsApp */}
           <div>
             <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               PHONE / WHATSAPP *
@@ -126,29 +127,46 @@ export default function HekfieldBookingForm() {
             )}
           </div>
 
+          <div>
+            <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
+              TIER OF INTEREST *
+            </label>
+            <select
+              {...register("tierOfInterest")}
+              className="w-full bg-white border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors appearance-none"
+            >
+              <option value="">Pilih tier...</option>
+              <option value="Founding">Founding</option>
+              <option value="Phase 1">Phase 1</option>
+              <option value="Final">Final</option>
+              <option value="Undecided">Undecided</option>
+            </select>
+            {errors.tierOfInterest && (
+              <p className="mt-1 font-inter text-xs text-driftwood">
+                {errors.tierOfInterest.message}
+              </p>
+            )}
+          </div>
 
-
-          {/* Payment Preference */}
           <div className="sm:col-span-2">
             <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               PREFERENSI PEMBAYARAN *
             </label>
             <select
-              {...register("budget")}
-              className="w-full bg-cream border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors appearance-none"
+              {...register("paymentPreference")}
+              className="w-full bg-white border border-navy/20 px-4 py-3 font-inter text-sm text-navy focus:outline-none focus:border-brass transition-colors appearance-none"
             >
               <option value="">Pilih preferensi...</option>
               <option value="Hard Cash">Hard Cash</option>
               <option value="Installment Cash">Installment Cash</option>
             </select>
-            {errors.budget && (
+            {errors.paymentPreference && (
               <p className="mt-1 font-inter text-xs text-driftwood">
-                {errors.budget.message}
+                {errors.paymentPreference.message}
               </p>
             )}
           </div>
 
-          {/* Message */}
           <div className="sm:col-span-2">
             <label className="eyebrow text-navy/50 text-[10px] tracking-[0.18em] block mb-2">
               MESSAGE (OPTIONAL)
@@ -156,13 +174,12 @@ export default function HekfieldBookingForm() {
             <textarea
               {...register("message")}
               rows={4}
-              placeholder="Any questions about the investment structure, ROI, or unit availability?"
+              placeholder="Jika ada pertanyaan soal pricing tier, skenario return, atau jadwal visit, tulis di sini."
               className="w-full bg-transparent border border-navy/20 px-4 py-3 font-inter text-sm text-navy placeholder:text-navy/30 focus:outline-none focus:border-brass transition-colors resize-none"
             />
           </div>
         </div>
 
-        {/* Actions */}
         <div className="pt-2">
           <button
             type="submit"
@@ -173,7 +190,7 @@ export default function HekfieldBookingForm() {
           </button>
         </div>
 
-        <p className="font-inter text-xs text-navy/35 text-center">
+        <p className="font-inter text-xs text-navy/35 text-center leading-relaxed">
           Data Anda hanya digunakan untuk menindaklanjuti minat ini dan tidak dibagikan ke pihak ketiga.
         </p>
       </form>

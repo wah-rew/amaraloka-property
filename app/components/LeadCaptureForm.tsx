@@ -8,6 +8,7 @@ type LeadCapturePayload = {
   email?: string;
   phone?: string;
   paymentPreference?: string;
+  tierOfInterest?: string;
   subject?: string;
   message?: string;
 };

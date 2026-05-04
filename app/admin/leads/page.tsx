@@ -17,7 +17,7 @@ async function getLeads() {
 
   const { data, error } = await supabase
     .from("leads")
-    .select("id, created_at, source, name, email, phone, payment_preference, subject, message, status, notes")
+    .select("id, created_at, source, name, email, phone, payment_preference, tier_of_interest, subject, message, status, notes")
     .order("created_at", { ascending: false });
 
   return {
@@ -137,6 +137,10 @@ export default async function AdminLeadsPage() {
                         <div>
                           <p className="text-navy/40 text-xs uppercase tracking-[0.15em] mb-1">Payment Preference</p>
                           <p>{lead.payment_preference || "-"}</p>
+                        </div>
+                        <div>
+                          <p className="text-navy/40 text-xs uppercase tracking-[0.15em] mb-1">Tier of Interest</p>
+                          <p>{lead.tier_of_interest || "-"}</p>
                         </div>
                         <div>
                           <p className="text-navy/40 text-xs uppercase tracking-[0.15em] mb-1">Subject</p>

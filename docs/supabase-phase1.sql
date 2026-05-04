@@ -8,6 +8,7 @@ create table if not exists public.leads (
   email text,
   phone text,
   payment_preference text,
+  tier_of_interest text,
   subject text,
   message text,
   status text not null default 'new' check (status in ('new', 'contacted', 'qualified', 'closed')),

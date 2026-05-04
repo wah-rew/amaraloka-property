@@ -1,40 +1,313 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  TrendingUp,
-  Shield,
-  Building2,
-  CheckCircle2,
-} from "lucide-react";
+import { Shield, TrendingUp, Landmark, BadgeCheck } from "lucide-react";
 
-// ─── Unit data ────────────────────────────────────────────────────────────────
-
-// ─── Investment data ──────────────────────────────────────────────────────────
-
-const noiProjection = [
-  { year: "Year 1", noi: "Rp 153 jt" },
-  { year: "Year 3", noi: "Rp 169 jt" },
-  { year: "Year 5", noi: "Rp 186 jt" },
-  { year: "Year 10", noi: "Rp 237 jt" },
+const tierPricing = [
+  {
+    tier: "Founding Tier",
+    units: "Unit 1-2",
+    price: "Rp 1,85 M",
+    capRate: "7,1%",
+    irr: "10,0%",
+    multiple: "2,18x",
+    benefits: [
+      "Guaranteed minimum NOI Rp 110 jt di Year 1",
+      "First right of refusal untuk Hekfield Phase 2",
+      "Quarterly investor report",
+      "Locked price sebelum tier berikutnya naik",
+    ],
+  },
+  {
+    tier: "Phase 1",
+    units: "Unit 3-4",
+    price: "Rp 1,95 M",
+    capRate: "6,7%",
+    irr: "9,3%",
+    multiple: "2,07x",
+    benefits: [
+      "Free management fee untuk 6 bulan pertama",
+      "Standard premium furnishing",
+      "Quarterly investor report",
+      "Masuk di fase harga publik pertama",
+    ],
+  },
+  {
+    tier: "Final",
+    units: "Unit 5",
+    price: "Rp 2,10 M",
+    capRate: "6,3%",
+    irr: "8,3%",
+    multiple: "1,92x",
+    benefits: [
+      "Harga mengikuti milestone konstruksi terakhir",
+      "Unit tetap fully managed",
+      "Quarterly investor report",
+      "Tetap mendapat struktur legal SHM yang sama",
+    ],
+  },
 ];
 
-const highlights = [
-  "SHM Ownership",
-  "Auto-Pilot Management",
-  "Full Furnished",
-  "NOI +5%/Year",
+const roomMix = [
+  {
+    unit: "1A",
+    floor: "Lt. 1",
+    type: "Studio",
+    size: "11 m²",
+    feature: "Backyard view",
+    monthly: "Rp 2,2 jt",
+    yearly: "Rp 26,4 jt",
+  },
+  {
+    unit: "1B",
+    floor: "Lt. 1",
+    type: "Studio",
+    size: "11 m²",
+    feature: "Backyard view",
+    monthly: "Rp 2,2 jt",
+    yearly: "Rp 26,4 jt",
+  },
+  {
+    unit: "2A",
+    floor: "Lt. 2",
+    type: "Studio",
+    size: "12 m²",
+    feature: "Front view",
+    monthly: "Rp 2,5 jt",
+    yearly: "Rp 30,0 jt",
+  },
+  {
+    unit: "2B",
+    floor: "Lt. 2",
+    type: "1BR Suite",
+    size: "13 m²",
+    feature: "Private kitchen",
+    monthly: "Rp 3,0 jt",
+    yearly: "Rp 36,0 jt",
+  },
+  {
+    unit: "3A",
+    floor: "Lt. 3",
+    type: "Studio",
+    size: "15 m²",
+    feature: "Largest + balcony",
+    monthly: "Rp 2,8 jt",
+    yearly: "Rp 33,6 jt",
+  },
+  {
+    unit: "3B",
+    floor: "Lt. 3",
+    type: "1BR Suite",
+    size: "13 m²",
+    feature: "Private kitchen",
+    monthly: "Rp 3,0 jt",
+    yearly: "Rp 36,0 jt",
+  },
 ];
 
-// ─── Component ────────────────────────────────────────────────────────────────
+const conservativeProjection = [
+  { label: "Gross Potential Income", value: "Rp 188,4 jt / year" },
+  { label: "Vacancy & Loss (10%)", value: "(Rp 18,84 jt)" },
+  { label: "Effective Gross Income", value: "Rp 169,56 jt" },
+  { label: "Operating Expenses (22%)", value: "(Rp 37,303 jt)" },
+  { label: "Net Operating Income", value: "Rp 132,257 jt / year" },
+  { label: "CapEx Reserve (5%)", value: "(Rp 8,478 jt)" },
+];
+
+const conservativeMilestones = [
+  { label: "Year 1 (Ramp-up)", value: "Rp 102 jt" },
+  { label: "Year 3+ (Stabilized)", value: "Rp 131 jt" },
+  { label: "Year 10", value: "Rp 174 jt" },
+];
+
+const baseCase = [
+  { label: "Occupancy", value: "88% sampai 92%" },
+  { label: "Operating Expenses", value: "20%" },
+  { label: "Rent Growth", value: "5% / year" },
+  { label: "Headline use", value: "Tidak dipakai untuk headline" },
+];
 
 export default function HekfieldClient() {
   return (
     <>
-      {/* ── The Investment Case for Hekfield Rempoa ─────────────────────────────── */}
+      <section className="bg-white py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl mb-16"
+          >
+            <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
+              UNIT PRICING
+            </p>
+            <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
+              Unit Pricing &amp; Founding Owner Advantage
+            </h2>
+            <p className="font-inter text-sm text-slate leading-relaxed">
+              Struktur harga dipublikasikan secara bertahap dan transparan. Harga naik
+              mengikuti milestone konstruksi, bukan tekanan artifisial.
+            </p>
+          </motion.div>
+
+          <div className="hidden md:block overflow-x-auto border border-navy/10">
+            <table className="w-full text-left bg-white">
+              <caption className="sr-only">
+                Tabel tier pricing Hekfield Rempoa beserta cap rate, IRR, dan total return 10 tahun.
+              </caption>
+              <thead className="bg-cream">
+                <tr>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Tier</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Unit</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Harga</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">Cap Rate</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">10yr IRR</th>
+                  <th scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">10yr Multiple</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tierPricing.map((item, index) => (
+                  <tr key={item.tier} className={index < tierPricing.length - 1 ? "border-b border-navy/10" : ""}>
+                    <th scope="row" className="px-5 py-5 font-playfair text-xl text-navy font-normal">{item.tier}</th>
+                    <td className="px-5 py-5 font-inter text-sm text-slate">{item.units}</td>
+                    <td className="px-5 py-5 font-playfair text-lg text-brass">{item.price}</td>
+                    <td className="px-5 py-5 font-inter text-sm text-slate">{item.capRate}</td>
+                    <td className="px-5 py-5 font-inter text-sm text-slate">{item.irr}</td>
+                    <td className="px-5 py-5 font-inter text-sm text-slate">{item.multiple}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:hidden">
+            {tierPricing.map((item) => (
+              <div key={item.tier} className="border border-navy/10 bg-white p-6">
+                <p className="eyebrow text-brass text-[10px] tracking-[0.18em] mb-3">{item.tier}</p>
+                <h3 className="font-playfair text-2xl text-navy mb-2">{item.price}</h3>
+                <p className="font-inter text-sm text-slate mb-4">{item.units}</p>
+                <div className="space-y-2 font-inter text-sm text-slate">
+                  <p>Cap rate: {item.capRate}</p>
+                  <p>10yr IRR: {item.irr}</p>
+                  <p>10yr Multiple: {item.multiple}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {tierPricing.map((item, index) => (
+              <motion.div
+                key={item.tier}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="border border-navy/10 bg-cream p-6"
+              >
+                <div className="flex items-center gap-2 mb-4">
+                  <BadgeCheck size={16} className="text-brass" strokeWidth={1.5} />
+                  <p className="eyebrow text-navy/45 text-[10px] tracking-[0.2em]">{item.tier}</p>
+                </div>
+                <h3 className="font-playfair text-2xl text-navy mb-4">Benefit</h3>
+                <ul className="space-y-3">
+                  {item.benefits.map((benefit) => (
+                    <li key={benefit} className="font-inter text-sm text-slate leading-relaxed flex gap-3">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brass shrink-0" />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl mb-16"
+          >
+            <p className="eyebrow text-brass mb-4 tracking-[0.25em]">
+              REVENUE BREAKDOWN
+            </p>
+            <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
+              Revenue Breakdown per Tipe Kamar
+            </h2>
+            <p className="font-inter text-sm text-slate leading-relaxed">
+              Struktur pendapatan disusun per tipe kamar agar investor bisa melihat logika revenue,
+              bukan hanya angka headline.
+            </p>
+          </motion.div>
+
+          <div className="hidden md:block overflow-x-auto border border-navy/10 bg-white">
+            <table className="w-full text-left">
+              <caption className="sr-only">
+                Tabel breakdown unit kamar Hekfield Rempoa beserta tipe, luas, dan sewa tahunan.
+              </caption>
+              <thead className="bg-white border-b border-navy/10">
+                <tr>
+                  {['Unit', 'Lantai', 'Tipe', 'Luas', 'Fitur', 'Sewa/Bln', 'Sewa/Thn'].map((heading) => (
+                    <th key={heading} scope="col" className="px-5 py-4 font-inter text-xs uppercase tracking-[0.18em] text-navy/50">
+                      {heading}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {roomMix.map((room, index) => (
+                  <tr key={room.unit} className={index < roomMix.length - 1 ? "border-b border-navy/10" : ""}>
+                    <th scope="row" className="px-5 py-4 font-playfair text-lg text-navy font-normal">{room.unit}</th>
+                    <td className="px-5 py-4 font-inter text-sm text-slate">{room.floor}</td>
+                    <td className="px-5 py-4 font-inter text-sm text-slate">{room.type}</td>
+                    <td className="px-5 py-4 font-inter text-sm text-slate">{room.size}</td>
+                    <td className="px-5 py-4 font-inter text-sm text-slate">{room.feature}</td>
+                    <td className="px-5 py-4 font-inter text-sm text-slate">{room.monthly}</td>
+                    <td className="px-5 py-4 font-inter text-sm text-slate">{room.yearly}</td>
+                  </tr>
+                ))}
+                <tr className="border-t border-navy/10 bg-cream/50">
+                  <th scope="row" colSpan={6} className="px-5 py-4 font-inter text-sm uppercase tracking-[0.15em] text-navy/55">
+                    Total / Year
+                  </th>
+                  <td className="px-5 py-4 font-playfair text-xl text-brass">Rp 188,4 jt</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+            {roomMix.map((room) => (
+              <div key={room.unit} className="border border-navy/10 bg-white p-5">
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="font-playfair text-2xl text-navy">{room.unit}</h3>
+                  <span className="font-inter text-xs text-brass uppercase tracking-[0.18em]">{room.floor}</span>
+                </div>
+                <div className="space-y-2 font-inter text-sm text-slate">
+                  <p><span className="text-navy/45">Tipe:</span> {room.type}</p>
+                  <p><span className="text-navy/45">Luas:</span> {room.size}</p>
+                  <p><span className="text-navy/45">Fitur:</span> {room.feature}</p>
+                  <p><span className="text-navy/45">Sewa/bulan:</span> {room.monthly}</p>
+                  <p><span className="text-navy/45">Sewa/tahun:</span> {room.yearly}</p>
+                </div>
+              </div>
+            ))}
+            <div className="border border-brass/30 bg-cream p-5">
+              <p className="eyebrow text-brass text-[10px] tracking-[0.2em] mb-2">TOTAL / YEAR</p>
+              <p className="font-playfair text-3xl text-navy">Rp 188,4 jt</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-navy py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,17 +319,15 @@ export default function HekfieldClient() {
               INVESTMENT ANALYSIS
             </p>
             <h2 className="font-playfair text-4xl text-cream mb-4 leading-snug">
-              The Investment Case for Hekfield Rempoa
+              Conservative first. Base case shown for transparency.
             </h2>
             <p className="font-inter text-sm text-cream/55 leading-relaxed">
-              Owning a Hekfield Rempoa unit means owning an income-generating asset
-              with strata title. Here is what that looks like over time.
+              Headline metrics di halaman ini menggunakan Conservative Scenario. Base Case tetap
+              kami tampilkan agar investor bisa menilai upside dengan kacamata yang lebih lengkap.
             </p>
           </motion.div>
 
-          {/* 4 Cards grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            {/* Card 1: Annual Income Projection dark navy with brass numbers */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1.35fr_0.85fr] gap-6 mb-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -67,40 +338,27 @@ export default function HekfieldClient() {
               <div className="flex items-center gap-2 mb-6">
                 <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
                 <p className="eyebrow text-brass/70 text-[10px] tracking-[0.2em]">
-                  ANNUAL INCOME PROJECTION
+                  ANNUAL INCOME PROJECTION, CONSERVATIVE SCENARIO
                 </p>
               </div>
               <div className="space-y-3">
-                {[
-                  { label: "Target Occupancy", value: "92%" },
-                  { label: "Average Room Rate", value: "Rp 2.600.000/month" },
-                  { label: "Gross Income/year", value: "Rp 187.200.000" },
-                  { label: "Operating Cost (18%)", value: "Rp 33.696.000" },
-                ].map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="flex items-center justify-between border-b border-cream/8 pb-3"
-                  >
-                    <span className="font-inter text-xs text-cream/50">
-                      {label}
-                    </span>
-                    <span className="font-inter text-sm text-cream/80">
-                      {value}
-                    </span>
+                {conservativeProjection.map(({ label, value }) => (
+                  <div key={label} className="flex items-center justify-between border-b border-cream/8 pb-3 gap-4">
+                    <span className="font-inter text-xs text-cream/50">{label}</span>
+                    <span className="font-inter text-sm text-cream/80 text-right">{value}</span>
                   </div>
                 ))}
-                <div className="flex items-center justify-between pt-2">
+                <div className="flex items-center justify-between pt-2 gap-4">
                   <span className="font-inter text-xs text-cream/60 font-medium">
-                    Net Operating Income
+                    Cash Flow After Reserve
                   </span>
                   <span className="font-playfair text-xl text-brass">
-                    Rp 153.504.000/year
+                    Rp 123,779 jt / year
                   </span>
                 </div>
               </div>
             </motion.div>
 
-            {/* Card 2: NOI Growth Over Time */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -109,58 +367,64 @@ export default function HekfieldClient() {
               className="bg-navy/60 border border-cream/10 p-8"
             >
               <div className="flex items-center gap-2 mb-6">
-                <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
+                <Landmark size={16} className="text-brass" strokeWidth={1.5} />
                 <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
-                  NOI GROWTH OVER TIME
+                  STABILIZED NOI MILESTONES
                 </p>
               </div>
               <div className="border border-cream/10">
-                <div className="grid grid-cols-2 border-b border-cream/10">
-                  <div className="px-4 py-3">
-                    <span className="eyebrow text-cream/30 text-[10px] tracking-[0.12em]">
-                      YEAR
-                    </span>
-                  </div>
-                  <div className="px-4 py-3 border-l border-cream/10">
-                    <span className="eyebrow text-cream/30 text-[10px] tracking-[0.12em]">
-                      NOI/YEAR
-                    </span>
-                  </div>
-                </div>
-                {noiProjection.map((row, i) => (
+                {conservativeMilestones.map((row, i) => (
                   <div
-                    key={row.year}
-                    className={`grid grid-cols-2 ${
-                      i < noiProjection.length - 1
-                        ? "border-b border-cream/10"
-                        : ""
-                    }`}
+                    key={row.label}
+                    className={`grid grid-cols-2 ${i < conservativeMilestones.length - 1 ? "border-b border-cream/10" : ""}`}
                   >
-                    <div className="px-4 py-3.5">
-                      <span className="font-inter text-sm text-cream/60">
-                        {row.year}
-                      </span>
+                    <div className="px-4 py-4">
+                      <span className="font-inter text-sm text-cream/60">{row.label}</span>
                     </div>
-                    <div className="px-4 py-3.5 border-l border-cream/10">
-                      <span className="font-playfair text-base text-brass">
-                        {row.noi}
-                      </span>
+                    <div className="px-4 py-4 border-l border-cream/10">
+                      <span className="font-playfair text-base text-brass">{row.value}</span>
                     </div>
                   </div>
                 ))}
               </div>
               <p className="font-inter text-[10px] text-cream/25 mt-4 leading-relaxed">
-                Assumes 5% annual rent growth, consistent with Jakarta premium
-                kost market.
+                Asumsi: 75% occupancy Year 1, naik ke 90% stabilized, OPEX 22%, rent growth 4%, CapEx reserve 5%.
               </p>
             </motion.div>
+          </div>
 
-            {/* Card 3: Why SHM Matters */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="bg-navy/60 border border-cream/10 p-8 lg:col-span-2"
+            >
+              <div className="flex items-center gap-2 mb-6">
+                <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
+                <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
+                  BASE CASE, FULL TRANSPARENCY
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {baseCase.map(({ label, value }) => (
+                  <div key={label} className="border border-cream/10 p-4">
+                    <p className="font-inter text-xs text-cream/35 uppercase tracking-[0.15em] mb-2">{label}</p>
+                    <p className="font-inter text-sm text-cream/75 leading-relaxed">{value}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="font-inter text-[10px] text-cream/25 mt-4 leading-relaxed">
+                Headline metrics tetap memakai Conservative Scenario. Base Case ditampilkan agar investor dapat melihat upside tanpa mengaburkan downside.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.35 }}
               className="bg-navy/60 border border-cream/10 p-8"
             >
               <div className="flex items-center gap-2 mb-6">
@@ -171,84 +435,22 @@ export default function HekfieldClient() {
               </div>
               <ul className="space-y-4">
                 {[
-                  "Full legal ownership, not leasehold",
-                  "Can be sold, inherited, or used as collateral",
-                  "No annual license renewal required",
-                  "Asset appreciates with property value",
+                  "Hak milik paling kuat untuk properti residensial",
+                  "Dapat dijual, diwariskan, atau dijaminkan",
+                  "Lebih mudah dipahami investor domestik dibanding struktur turunan",
+                  "Menambah kualitas exit story ketika aset matang",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={15}
-                      className="text-sage shrink-0 mt-0.5"
-                      strokeWidth={1.5}
-                    />
-                    <span className="font-inter text-sm text-cream/70">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Card 4: The Passive Income Advantage */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-navy/60 border border-cream/10 p-8"
-            >
-              <div className="flex items-center gap-2 mb-6">
-                <Building2 size={16} className="text-brass" strokeWidth={1.5} />
-                <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
-                  THE PASSIVE INCOME ADVANTAGE
-                </p>
-              </div>
-              <ul className="space-y-4">
-                {[
-                  "Property managed by Amaraloka (auto-pilot)",
-                  "Full furnishing included, no CapEx after purchase",
-                  "Monthly income distributed to owner",
-                  "Minimal owner involvement required",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2
-                      size={15}
-                      className="text-sage shrink-0 mt-0.5"
-                      strokeWidth={1.5}
-                    />
-                    <span className="font-inter text-sm text-cream/70">
-                      {item}
-                    </span>
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brass shrink-0" />
+                    <span className="font-inter text-sm text-cream/70">{item}</span>
                   </li>
                 ))}
               </ul>
             </motion.div>
           </div>
-
-          {/* Investment Highlights strip 4 items in a row */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-2 md:grid-cols-4 border border-cream/10"
-          >
-            {highlights.map((item, i) => (
-              <div
-                key={item}
-                className={`px-6 py-5 text-center ${
-                  i < highlights.length - 1
-                    ? "border-b md:border-b-0 border-r-0 md:border-r border-cream/10"
-                    : ""
-                }`}
-              >
-                <p className="font-playfair text-sm text-cream/80">{item}</p>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
+
     </>
   );
 }

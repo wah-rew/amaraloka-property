@@ -3,12 +3,13 @@ import Image from "next/image";
 import { Coffee, Sparkles, HeadphonesIcon } from "lucide-react";
 import FadeIn from "../../components/FadeIn";
 import HekfieldClient from "./HekfieldClient";
+import HekfieldBookingForm from "./HekfieldBookingForm";
 import { PUBLIC_WHATSAPP_LINK } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Hekfield Rempoa Strata Title Kost Investment by Amaraloka",
   description:
-    "5 units. SHM ownership. Passive income managed by Amaraloka. Hekfield Rempoa is a premium kost investment property in Jakarta not a rental.",
+    "5 strata-title units. Founding tier from Rp 1,85 M. 10,0% IRR conservative case for Hekfield Rempoa by Amaraloka.",
   openGraph: {
     images: ["/images/hekfield/facade.jpg"],
   },
@@ -23,7 +24,7 @@ const amenities = [
   {
     icon: Sparkles,
     title: "Housekeeping Included",
-    desc: "Units professionally cleaned and maintained fully managed for you.",
+    desc: "Units professionally cleaned and maintained, fully managed for you.",
   },
   {
     icon: HeadphonesIcon,
@@ -32,7 +33,13 @@ const amenities = [
   },
 ];
 
-// NOTE: Exact distances to be confirmed by Wahyu for Hekfield Rempoa's final address
+const heroKpis = [
+  { value: "Rp 1,85 M", label: "Founding Price" },
+  { value: "Rp 131 jt", label: "NOI Stabilized" },
+  { value: "10,0%", label: "10yr IRR" },
+  { value: "2,18x", label: "10yr Total Return" },
+];
+
 const nearbyPOIs = [
   {
     category: "Transportasi",
@@ -59,10 +66,84 @@ const nearbyPOIs = [
   },
 ];
 
+const exitPaths = [
+  {
+    title: "Hold Forever",
+    summary: "Kumulatif NOI 10yr: Rp 1,29 M",
+    details: [
+      "NOI Year 10: Rp 174 jt / year",
+      "Dapat diwariskan atau dijaminkan untuk akses kredit",
+      "Cocok untuk investor yang ingin cashflow jangka panjang",
+    ],
+  },
+  {
+    title: "Jual Tahun ke-5",
+    summary: "Exit Value: Rp 2,11 M",
+    details: [
+      "5yr Total Multiple: 1,57x",
+      "Likuidasi setelah fase stabilized",
+      "Masuk akal bila target holding period Anda menengah",
+    ],
+  },
+  {
+    title: "Jual Tahun ke-10",
+    summary: "Exit Value: Rp 2,59 M",
+    details: [
+      "10yr Total Multiple: 2,18x",
+      "Maksimasi capital gain dari apresiasi tanah",
+      "Berbasis Founding price Rp 1,85 M dan Conservative Scenario",
+    ],
+  },
+];
+
+const risks = [
+  {
+    title: "Vacancy Risk",
+    risk: "Year 1 ramp-up bisa lebih lambat dari proyeksi.",
+    mitigation:
+      "Founding tier mendapat guaranteed minimum NOI Rp 110 jt pada Year 1.",
+  },
+  {
+    title: "Operasional & Management",
+    risk: "Kualitas tenant management mempengaruhi retensi dan review tenant.",
+    mitigation:
+      "Tim concierge dedicated dan quarterly performance report menjaga disiplin operasional.",
+  },
+  {
+    title: "Market Risk",
+    risk: "Koridor MRT bisa menerima supply baru di segmen kost premium.",
+    mitigation:
+      "Pricing mid-premium memberi buffer terhadap kompetitor tanpa mengorbankan positioning.",
+  },
+  {
+    title: "Likuiditas",
+    risk: "Pasar resale strata kost Indonesia masih relatif thin.",
+    mitigation:
+      "Amaraloka memfasilitasi resale dan membuka jalur first right of refusal untuk ekosistem berikutnya.",
+  },
+  {
+    title: "CapEx Maintenance",
+    risk: "Furniture, AC, dan finishing perlu refresh setelah 5 sampai 7 tahun.",
+    mitigation:
+      "CapEx reserve 5% dibukukan dari NOI sejak periode stabilized.",
+  },
+  {
+    title: "Regulatory",
+    risk: "Perubahan zonasi atau pajak properti dapat memengaruhi return.",
+    mitigation:
+      "SHM adalah bentuk hak milik tertinggi dan paling protected untuk kepemilikan properti.",
+  },
+];
+
 export default function HekfieldPage() {
+  const isLeadCaptureEnabled = Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL?.trim() &&
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim() &&
+      process.env.SUPABASE_SERVICE_ROLE_KEY?.trim()
+  );
+
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <Image
           src="/images/hekfield/facade.jpg"
@@ -72,16 +153,14 @@ export default function HekfieldPage() {
           priority
           sizes="100vw"
         />
-        {/* Navy overlay */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(27,43,75,0.88) 0%, rgba(27,43,75,0.3) 50%, rgba(27,43,75,0.1) 100%)",
+              "linear-gradient(to top, rgba(27,43,75,0.9) 0%, rgba(27,43,75,0.32) 50%, rgba(27,43,75,0.08) 100%)",
           }}
         />
 
-        {/* Content, bottom left */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-20 pt-32 w-full">
           <FadeIn delay={0.1} direction="none">
             <p className="eyebrow text-cream/60 mb-4 tracking-[0.25em]">
@@ -94,25 +173,35 @@ export default function HekfieldPage() {
             </h1>
           </FadeIn>
           <FadeIn delay={0.4}>
-            <p className="font-inter text-xl text-cream/75 max-w-md leading-relaxed mb-3">
+            <p className="font-inter text-xl text-cream/75 max-w-2xl leading-relaxed mb-4">
               A quiet estate for the quietly ambitious.
             </p>
           </FadeIn>
           <FadeIn delay={0.5}>
-            <p className="font-inter text-xs text-cream/50 tracking-[0.22em] uppercase">
-              5 units.&nbsp;&nbsp;Strata title.&nbsp;&nbsp;Passive income.
+            <p className="font-inter text-sm text-cream/60 max-w-2xl leading-relaxed mb-8">
+              5 strata-title units. Founding tier from Rp 1,85 M. 10,0% IRR conservative case.
             </p>
+          </FadeIn>
+
+          <FadeIn delay={0.6}>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-4xl">
+              {heroKpis.map((item) => (
+                <div key={item.label} className="border border-white/15 bg-white/5 backdrop-blur-sm px-4 py-4">
+                  <p className="font-playfair text-2xl md:text-3xl text-white mb-1">{item.value}</p>
+                  <p className="font-inter text-[11px] uppercase tracking-[0.18em] text-cream/55">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </FadeIn>
         </div>
       </section>
 
-      {/* ── The Story ────────────────────────────────────────────────────── */}
       <section className="bg-cream py-28 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <FadeIn>
-            <p className="eyebrow text-brass mb-8 tracking-[0.25em]">
-              THE STORY
-            </p>
+            <p className="eyebrow text-brass mb-8 tracking-[0.25em]">THE STORY</p>
             <h2 className="font-playfair text-4xl text-navy mb-8 leading-snug">
               Inspired by the English countryside. Built for Jakarta.
             </h2>
@@ -131,7 +220,7 @@ export default function HekfieldPage() {
               Phase 1 offers exactly five units each transferred under SHM
               (Sertifikat Hak Milik), the highest form of property title in
               Indonesia. Fully managed by Amaraloka, owners receive monthly
-              income without involvement.
+              income without daily involvement.
             </p>
           </FadeIn>
           <FadeIn delay={0.2}>
@@ -145,7 +234,8 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      {/* ── Floor Plan ───────────────────────────────────────────────────── */}
+      <HekfieldClient />
+
       <section className="bg-white py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <FadeIn>
@@ -175,7 +265,6 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      {/* ── Amenities ────────────────────────────────────────────────────── */}
       <section className="bg-cream py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
@@ -191,12 +280,8 @@ export default function HekfieldPage() {
               <FadeIn key={a.title} delay={i * 0.08}>
                 <div className="border-t border-sand pt-6">
                   <a.icon size={20} className="text-brass mb-4" strokeWidth={1.5} />
-                  <h3 className="font-playfair text-lg text-navy mb-2">
-                    {a.title}
-                  </h3>
-                  <p className="font-inter text-sm text-slate leading-relaxed">
-                    {a.desc}
-                  </p>
+                  <h3 className="font-playfair text-lg text-navy mb-2">{a.title}</h3>
+                  <p className="font-inter text-sm text-slate leading-relaxed">{a.desc}</p>
                 </div>
               </FadeIn>
             ))}
@@ -204,10 +289,6 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      {/* ── Reserve Your Unit + Investment Analysis ───────────────────────── */}
-      <HekfieldClient />
-
-      {/* ── Location ─────────────────────────────────────────────────────── */}
       <section className="bg-white py-24 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
@@ -218,8 +299,7 @@ export default function HekfieldPage() {
               Quietly central.
             </h2>
             <p className="font-inter text-sm text-slate text-center mb-16 max-w-md mx-auto">
-              Di koridor MRT Lebak Bulus. Terhubung ke seluruh kota, tanpa
-              kehilangan ketenangan.
+              Di koridor MRT Lebak Bulus. Terhubung ke seluruh kota, tanpa kehilangan ketenangan.
             </p>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -246,7 +326,6 @@ export default function HekfieldPage() {
               </div>
             </FadeIn>
 
-            {/* Google Maps embed */}
             <FadeIn delay={0.25}>
               <div className="w-full aspect-[4/3] border border-navy/10 overflow-hidden">
                 <iframe
@@ -268,7 +347,7 @@ export default function HekfieldPage() {
               >
                 Buka di Google Maps
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
             </FadeIn>
@@ -276,27 +355,88 @@ export default function HekfieldPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-24 px-6" id="reserve">
-        <div className="max-w-4xl mx-auto">
+      <section className="bg-white py-24 px-6">
+        <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <p className="eyebrow text-brass text-center mb-4 tracking-[0.25em]">
-              CHAT VIA WHATSAPP
+            <p className="eyebrow text-brass mb-4 tracking-[0.25em] text-center">
+              EXIT SCENARIOS
             </p>
-            <h2 className="font-playfair text-4xl text-navy text-center mb-4">
-              Bicara langsung dengan tim Amaraloka.
+            <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug text-center">
+              Tiga path likuiditas.
             </h2>
-            <p className="font-inter text-sm text-slate text-center mb-12 max-w-xl mx-auto leading-relaxed">
-              Untuk saat ini kami menyederhanakan proses enquiry agar lebih cepat.
-              Klik WhatsApp di bawah untuk tanya unit tersedia, skema pembayaran,
-              atau jadwalkan visit ke Hekfield Rempoa.
+            <p className="font-inter text-sm text-slate leading-relaxed max-w-3xl mx-auto text-center mb-16">
+              Berbasis Founding price Rp 1,85 M dan Conservative Scenario. SHM memberi fleksibilitas untuk hold, dijual, diwariskan, atau dijaminkan.
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.15}>
-            <div className="border border-navy/10 bg-white px-8 py-10 md:px-12 md:py-12 text-center">
-              <p className="font-inter text-sm text-slate leading-relaxed max-w-lg mx-auto mb-8">
-                Anda akan langsung terhubung ke WhatsApp kami. Lebih cepat, lebih personal,
-                dan enak untuk diskusi detail investasi.
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {exitPaths.map((path, index) => (
+              <FadeIn key={path.title} delay={index * 0.08}>
+                <div className="border border-navy/10 bg-cream p-6 h-full">
+                  <p className="eyebrow text-brass text-[10px] tracking-[0.2em] mb-3">{path.title}</p>
+                  <h3 className="font-playfair text-2xl text-navy mb-4 leading-snug">{path.summary}</h3>
+                  <ul className="space-y-3">
+                    {path.details.map((detail) => (
+                      <li key={detail} className="font-inter text-sm text-slate leading-relaxed flex gap-3">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-brass shrink-0" />
+                        <span>{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <FadeIn>
+            <p className="eyebrow text-brass mb-4 tracking-[0.25em] text-center">
+              RISIKO &amp; MITIGASI
+            </p>
+            <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug text-center">
+              Transparansi terlebih dulu.
+            </h2>
+            <p className="font-inter text-sm text-slate leading-relaxed max-w-3xl mx-auto text-center mb-16">
+              Setiap investasi punya risiko. Kami sajikan secara terbuka agar ekspektasi tetap rasional dan keputusan tetap nyaman dipertanggungjawabkan.
+            </p>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {risks.map((item, index) => (
+              <FadeIn key={item.title} delay={index * 0.06}>
+                <div className="border border-navy/10 bg-white p-6 h-full">
+                  <h3 className="font-playfair text-2xl text-navy mb-4">{item.title}</h3>
+                  <div className="space-y-3">
+                    <p className="font-inter text-sm text-slate leading-relaxed">
+                      <span className="text-navy font-medium">Risk:</span> {item.risk}
+                    </p>
+                    <p className="font-inter text-sm text-slate leading-relaxed">
+                      <span className="text-navy font-medium">Mitigasi:</span> {item.mitigation}
+                    </p>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 px-6" id="reserve">
+        {isLeadCaptureEnabled ? (
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
+            <FadeIn>
+              <p className="eyebrow text-brass mb-4 tracking-[0.25em]">EXPRESS INTEREST</p>
+              <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
+                Bicara dulu, hitung pelan-pelan.
+              </h2>
+              <p className="font-inter text-sm text-slate leading-relaxed mb-5">
+                Isi form ini bila Anda ingin menerima penjelasan tier, pricing, dan skenario return dengan ritme yang lebih tenang.
+              </p>
+              <p className="font-inter text-sm text-slate leading-relaxed mb-8">
+                Jika Anda lebih nyaman memulai lewat percakapan singkat, WhatsApp tetap terbuka sebagai jalur yang lebih cepat.
               </p>
               <a
                 href={PUBLIC_WHATSAPP_LINK}
@@ -306,9 +446,35 @@ export default function HekfieldPage() {
               >
                 Chat via WhatsApp
               </a>
-            </div>
-          </FadeIn>
-        </div>
+            </FadeIn>
+
+            <FadeIn delay={0.12}>
+              <div className="border border-navy/10 bg-cream px-6 py-8 md:px-10 md:py-10">
+                <HekfieldBookingForm />
+              </div>
+            </FadeIn>
+          </div>
+        ) : (
+          <div className="max-w-4xl mx-auto text-center">
+            <FadeIn>
+              <p className="eyebrow text-brass mb-4 tracking-[0.25em]">EXPRESS INTEREST</p>
+              <h2 className="font-playfair text-4xl text-navy mb-4 leading-snug">
+                Mulai dari percakapan yang sederhana.
+              </h2>
+              <p className="font-inter text-sm text-slate leading-relaxed max-w-2xl mx-auto mb-10">
+                Untuk saat ini kami melayani enquiry Hekfield Rempoa langsung via WhatsApp. Ini jalur tercepat untuk mendiskusikan Founding tier, pricing ladder, skema pembayaran, atau menjadwalkan visit.
+              </p>
+              <a
+                href={PUBLIC_WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-inter text-sm hover:bg-navyLight transition-colors duration-200"
+              >
+                Chat via WhatsApp
+              </a>
+            </FadeIn>
+          </div>
+        )}
       </section>
     </>
   );
