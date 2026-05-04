@@ -63,13 +63,6 @@ const conservativeMilestones = [
   { label: "Year 10", value: "Rp 174 jt" },
 ];
 
-const baseCase = [
-  { label: "Occupancy", value: "88% sampai 92%" },
-  { label: "Operating Expenses", value: "20%" },
-  { label: "Rent Growth", value: "5% / year" },
-  { label: "Headline use", value: "Tidak dipakai untuk headline" },
-];
-
 export default function HekfieldClient() {
   return (
     <>
@@ -255,33 +248,7 @@ export default function HekfieldClient() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="bg-navy/60 border border-cream/10 p-8 lg:col-span-2"
-            >
-              <div className="flex items-center gap-2 mb-6">
-                <TrendingUp size={16} className="text-brass" strokeWidth={1.5} />
-                <p className="eyebrow text-cream/30 text-[10px] tracking-[0.2em]">
-                  BASE CASE, FULL TRANSPARENCY
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {baseCase.map(({ label, value }) => (
-                  <div key={label} className="border border-cream/10 p-4">
-                    <p className="font-inter text-xs text-cream/35 uppercase tracking-[0.15em] mb-2">{label}</p>
-                    <p className="font-inter text-sm text-cream/75 leading-relaxed">{value}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="font-inter text-[10px] text-cream/25 mt-4 leading-relaxed">
-                Headline metrics tetap memakai Conservative Scenario. Base Case ditampilkan agar investor dapat melihat upside tanpa mengaburkan downside.
-              </p>
-            </motion.div>
-
+          <div className="grid grid-cols-1 mb-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
